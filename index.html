@@ -2,10 +2,61 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>My Website22</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Market Valley Hanabi</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background: #ffffff;
+    }
+
+    .section-image {
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto;
+      display: block;
+    }
+
+    .form-section {
+      padding: 40px 0;
+      background: #f5f5f5;
+    }
+
+    .form-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+  </style>
 </head>
+
 <body>
-  <h1>サイト公開成功！</h1>
-  <p>これは GitHub Pages のテストページです。</p>
+
+  <!-- 画像1 -->
+  <img src="images/img1.jpg" alt="section image" class="section-image">
+
+  <!-- 画像2 -->
+  <img src="images/img2.jpg" alt="section image" class="section-image">
+
+  <!-- 画像3 -->
+  <img src="images/img3.jpg" alt="section image" class="section-image">
+
+  <!-- 問い合わせフォーム -->
+  <div class="form-section">
+    <div class="form-container">
+      <h2>お問い合わせ</h2>
+
+      <!-- ★ Google フォームの埋め込みURLを差し替えて使用 ★ -->
+      <iframe 
+        src="https://docs.google.com/forms/d/e/【あなたのGoogleフォームID】/viewform?embedded=true"
+        width="100%" height="1200" frameborder="0" marginheight="0" marginwidth="0"
+      >
+        読み込んでいます…
+      </iframe>
+    </div>
+  </div>
+
 </body>
 </html>
