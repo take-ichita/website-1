@@ -12,13 +12,13 @@
       background: #ffffff;
     }
 
-.section-image {
-  display: block;
-  width: 100%;
-  height: auto;
-  margin: 0;
-  padding: 0;
-}
+    .section-image {
+      display: block;
+      width: 100%;
+      height: auto;
+      margin: 0;
+      padding: 0;
+    }
 
     .form-section {
       padding: 40px 0;
@@ -30,6 +30,44 @@
       margin: 0 auto;
       padding: 20px;
     }
+
+      .form-section {
+    padding: 60px 20px;
+    background: #f7f7f7;
+  }
+
+  .form-container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 40px 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  }
+
+  .form-section h2 {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 10px;
+  }
+
+  .form-description {
+    text-align: center;
+    color: #666;
+    margin-bottom: 30px;
+    font-size: 16px;
+  }
+
+  .google-form {
+    border: none;
+  }
+
+  /* スマホ最適化 */
+  @media (max-width: 600px) {
+    .form-container {
+      padding: 25px 15px;
+    }
+  }
   </style>
 </head>
 
@@ -46,19 +84,27 @@
   <img src="images/img6.png" alt="section image" class="section-image">
 
   <!-- 問い合わせフォーム -->
-  <div class="form-section">
-    <div class="form-container">
-      <h2>お問い合わせ</h2>
+<div class="form-section">
+  <div class="form-container">
 
-      <!-- ★ Google フォームの埋め込みURLを差し替えて使用 ★ -->
-      <iframe 
-        src="https://docs.google.com/forms/d/e/【あなたのGoogleフォームID】/viewform?embedded=true"
-        width="100%" height="1200" frameborder="0" marginheight="0" marginwidth="0"
-      >
-        読み込んでいます…
-      </iframe>
-    </div>
+    <h2>お問い合わせ</h2>
+    <p class="form-description">
+      ご質問・ご相談など、お気軽にお問い合わせください。
+    </p>
+
+    <!-- ★ Google フォーム埋め込み ★ -->
+    <iframe
+      src="https://docs.google.com/forms/d/e/1FAIpQLScYtljzQb1xQpiI6qkZmFfK3iZbfaW45s_zdjFmhkrGWsSKFQ/viewform?embedded=true"
+      width="100%"
+      height="1400"
+      frameborder="0"
+      class="google-form"
+    >
+    読み込んでいます…
+    </iframe>
+
   </div>
+</div>
 
 </body>
 </html>
