@@ -58,8 +58,59 @@
     font-size: 16px;
   }
 
-  .google-form {
-    border: none;
+  .cta-section {
+    padding: 80px 20px;
+    background: linear-gradient(135deg, #e8f0ff 0%, #ffffff 100%);
+    text-align: center;
+  }
+
+  .cta-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 30px;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+  }
+
+  .cta-title {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+
+  .cta-text {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 40px;
+    line-height: 1.7;
+  }
+
+  /* ボタンデザイン */
+  .cta-button {
+    display: inline-block;
+    padding: 16px 40px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+    background: #006cff;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: 0.2s ease;
+    box-shadow: 0 4px 12px rgba(0,108,255,0.3);
+  }
+
+  .cta-button:hover {
+    background: #0057cc;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0,108,255,0.4);
+  }
+
+  /* スマホ最適化 */
+  @media (max-width: 600px) {
+    .cta-title { font-size: 26px; }
+    .cta-text { font-size: 16px; }
+    .cta-button { font-size: 18px; padding: 14px 28px; }
   }
 
   /* スマホ最適化 */
@@ -83,25 +134,19 @@
   <img src="images/img5.png" alt="section image" class="section-image">
   <img src="images/img6.png" alt="section image" class="section-image">
 
-  <!-- 問い合わせフォーム -->
-<div class="form-section">
-  <div class="form-container">
+<!-- お問い合わせセクション -->
+<div class="cta-section">
+  <div class="cta-container">
 
-    <h2>お問い合わせ</h2>
-    <p class="form-description">
-      ご質問・ご相談など、お気軽にお問い合わせください。
+    <h2 class="cta-title">お問い合わせ</h2>
+    <p class="cta-text">
+      ご不明点やご相談がございましたら、こちらよりお問い合わせください。
+      <br>担当者より迅速にご連絡いたします。
     </p>
 
-    <!-- ★ Google フォーム埋め込み ★ -->
-    <iframe
-      src="https://docs.google.com/forms/d/e/1FAIpQLSdQ6FRuU-FRfHb_FT2XPSANoUdklJIAQmSeiHeDRqc6jA3OMA/viewform?usp=dialog"
-      width="100%"
-      height="1400"
-      frameborder="0"
-      class="google-form"
-    >
-    読み込んでいます…
-    </iframe>
+    <a class="cta-button" href="https://forms.gle/Wei9GRR1WXy8iVwd7" target="_blank" rel="noopener">
+      お問い合わせフォームを開く
+    </a>
 
   </div>
 </div>
