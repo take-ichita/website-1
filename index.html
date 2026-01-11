@@ -1,165 +1,1036 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-91ZBQNR20L"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-  
-    gtag('config', 'G-91ZBQNR20L');
-  </script>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Market Valley Hanabi</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <title>Shopeeツール「HANABI」｜Shopee出品・無在庫出品を自動化</title>
+
+  <meta name="description" content="HANABIはShopee販売者向けに設計されたShopeeツールです。Shopee出品・無在庫出品・価格調整・商品管理を自動化。高頻度アップデートで進化し続ける日本人向けShopee自動化ツール。" />
+
+  <meta name="robots" content="index, follow" />
+
+  <!-- ===== STYLE ===== -->
   <style>
-    body {
-      margin: 0;
-      font-family: sans-serif;
-      background: #ffffff;
-    }
-
-    .section-image {
-      display: block;
-      width: 100%;
-      height: auto;
-      margin: 0;
-      padding: 0;
-    }
-
-    .form-section {
-      padding: 40px 0;
-      background: #f5f5f5;
-    }
-
-    .form-container {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 20px;
-    }
-
-      .form-section {
-    padding: 60px 20px;
-    background: #f7f7f7;
+  :root {
+    --main: #ff5722;
+    --bg: #f4f5f7;
+    --text: #333;
+    --max: 1100px;
   }
 
-  .form-container {
-    max-width: 900px;
-    margin: 0 auto;
-    background: #ffffff;
-    padding: 40px 30px;
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+      "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 20px;              /* ← 全体フォントUP */
+    line-height: 1.5;             /* ← 長文でも疲れにくい */
+  }
+
+  /* 画像共通レイアウト */
+.image-block {
+  max-width: 100%;
+  text-align: center;
+}
+
+/* 画像本体 */
+.image-block img {
+  max-width: 100%;     /* 親幅以上に広がらない */
+  width: 100%;         /* 親に合わせて縮小 */
+  height: auto;        /* 縦横比維持 */
+  display: block;
+  margin: 0 auto;
+
+  /* 見た目調整（LP向け） */
+  border-radius: 12px;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+}
+
+@media (max-width: 768px) {
+  body {
+    font-size: 17.5px;  /* ← スマホ用 */
+  }
+}
+  header {
+    background: linear-gradient(135deg, #ff5722, #ff784e);
+    color: #fff;
+    padding: 26px 20px;
+    text-align: center;
+  }
+
+  header h1 {
+    font-size: 2.6rem;
+    margin: 0;
+    line-height: 1.4;
+  }
+
+  section {
+    max-width: var(--max);
+    margin: 48px auto;
+    padding: 56px 32px;
+    background: #fff;             /* ← セクションをカード化 */
     border-radius: 12px;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.05);
   }
 
-  .form-section h2 {
-    text-align: center;
-    font-size: 28px;
-    margin-bottom: 10px;
+  h2 {
+    font-size: 2.1rem;             /* ← セクション見出しを強く */
+    margin-bottom: 28px;
+    padding-bottom: 12px;
+    border-bottom: 3px solid var(--main);
   }
 
-  .form-description {
-    text-align: center;
-    color: #666;
-    margin-bottom: 30px;
-    font-size: 16px;
+  h3 {
+    font-size: 2rem;
+    margin-top: 40px;
+    margin-bottom: 12px;
+    color: var(--main);            /* ← 階層が一目で分かる */
   }
 
+  p {
+    margin: 20px 0;
+  }
+
+  ul {
+    margin: 20px 0 20px 28px;
+  }
+
+  li {
+    margin-bottom: 12px;
+  }
+
+  strong {
+    color: var(--main);
+    font-weight: 600;
+  }
+
+  /* スマホ調整 */
+  @media (max-width: 768px) {
+    body {
+      font-size: 16.5px;
+    }
+
+    header h1 {
+      font-size: 2.0rem;
+    }
+
+    h2 {
+      font-size: 1.7rem;
+    }
+
+    h3 {
+      font-size: 1.25rem;
+    }
+
+    section {
+      padding: 40px 20px;
+      margin: 32px 12px;
+    }
+  }
+
+    footer {
+      background: #222;
+      color: #fff;
+      text-align: center;
+      padding: 30px 20px;
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 8px;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    .highlight {
+      color: var(--main-color);
+      font-weight: bold;
+    }
+
+    /* ================= CONTACT CTA ================= */
+
+.cta-section {
+  background: linear-gradient(135deg, #ff5722, #ff784e);
+  padding: 80px 20px;
+  margin-top: 80px;
+}
+
+.cta-container {
+  max-width: 800px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 16px;
+  padding: 56px 32px;
+  text-align: center;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+}
+
+.cta-title {
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+  color: #222;
+}
+
+.cta-text {
+  font-size: 1.05em;
+  margin-bottom: 32px;
+  line-height: 1.9;
+}
+
+.cta-button {
+  display: inline-block;
+  background: #ff5722;
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.1em;
+  font-weight: 600;
+  padding: 18px 40px;
+  border-radius: 999px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease,
+    background 0.2s ease;
+  box-shadow: 0 8px 20px rgba(255, 87, 34, 0.4);
+}
+
+.cta-button:hover {
+  background: #e64a19;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(255, 87, 34, 0.45);
+}
+
+.cta-note {
+  margin-top: 20px;
+  font-size: 0.9em;
+  color: #666;
+}
+
+/* スマホ調整 */
+@media (max-width: 768px) {
   .cta-section {
-    padding: 80px 20px;
-    background: linear-gradient(135deg, #e8f0ff 0%, #ffffff 100%);
-    text-align: center;
+    padding: 60px 16px;
   }
 
   .cta-container {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 40px 30px;
-    background: #ffffff;
-    border-radius: 16px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    padding: 40px 20px;
   }
 
   .cta-title {
-    font-size: 32px;
-    font-weight: bold;
-    margin-bottom: 20px;
+    font-size: 1.8rem;
   }
 
-  .cta-text {
-    font-size: 18px;
-    color: #555;
-    margin-bottom: 40px;
-    line-height: 1.7;
-  }
-
-  /* ボタンデザイン */
   .cta-button {
-    display: inline-block;
-    padding: 16px 40px;
-    font-size: 20px;
-    font-weight: bold;
-    color: #fff;
-    background: #006cff;
-    border-radius: 30px;
-    text-decoration: none;
-    transition: 0.2s ease;
-    box-shadow: 0 4px 12px rgba(0,108,255,0.3);
+    width: 100%;
+    padding: 18px 0;
+  }
+}
+#faq {
+  background: #fff;
+  border-radius: 8px;
+}
+
+.faq-item {
+  margin-bottom: 28px;
+}
+
+/* ===== FAQ 調整 ===== */
+
+#faq .faq-item h3 {
+  font-size: 1.25em;     /* ← 回答より少し大きく */
+  font-weight: 600;
+  margin-bottom: 8px;
+  line-height: 1.6;
+}
+
+#faq .faq-item p {
+  font-size: 1em;        /* ← 回答は基準サイズ */
+  line-height: 1.9;
+}
+
+#faq p {
+  text-indent: 1em;
+}
+/* ===== ミニCTA専用：高さだけ圧縮 ===== */
+.micro-cta-section {
+  padding: 12px 32px;     /* ← 上下だけ小さく */
+  margin: 24px auto;      /* ← 他より詰める */
+}
+.micro-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+
+  padding: 10px 14px;
+  margin: 32px 0;
+
+  background: #fafafa;
+  border: 1px dashed #ddd;
+  border-radius: 6px;
+}
+
+/* テキスト側 */
+.micro-cta-text {
+  font-size: 0.95em;
+  color: #555;
+  white-space: nowrap; /* ← 改行させない */
+}
+
+/* ボタン側 */
+.mini-cta-action {
+  display: flex;
+  align-items: center;
+}
+
+.mini-cta-button {
+  display: inline-block;
+  padding: 6px 12px;
+
+  font-size: 0.9em;
+  font-weight: 600;
+
+  color: #fff;
+  background: #ee4d2d;
+  border-radius: 4px;
+  text-decoration: none;
+
+  line-height: 1;
+}
+
+.mini-cta-button:hover {
+  opacity: 0.9;
+}
+
+/* モバイルだけ縦にしたい場合（任意） */
+@media (max-width: 480px) {
+  .micro-cta {
+    flex-wrap: wrap;
   }
 
-  .cta-button:hover {
-    background: #0057cc;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 18px rgba(0,108,255,0.4);
+  .micro-cta-text {
+    white-space: normal;
+    text-align: center;
   }
+}
 
-  /* スマホ最適化 */
-  @media (max-width: 600px) {
-    .cta-title { font-size: 26px; }
-    .cta-text { font-size: 16px; }
-    .cta-button { font-size: 18px; padding: 14px 28px; }
-  }
+/* ===== サブサービス（AI導入支援） ===== */
+.sub-service-mini {
+  max-width: 800px;
+  margin: 24px auto 48px;
+  padding: 16px 20px;
 
-  /* スマホ最適化 */
-  @media (max-width: 600px) {
-    .form-container {
-      padding: 25px 15px;
+  background: #f9f9f9;
+  border-radius: 6px;
+
+  font-size: 0.85em;   /* ← 全体より一段小さく */
+  line-height: 1.7;
+  color: #666;
+}
+
+.sub-service-mini p {
+  margin: 8px 0;
+}
+
+.sub-service-mini strong {
+  font-weight: 600;
+  color: #555;
+}
+
+
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "HANABIはShopee公式のツールですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "はい。HANABIはShopee公式の認定を受けたShopeeツールです。Shopee社の基準を満たし、公式に認められています。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "HANABIはShopeeの無在庫出品に対応していますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "はい。HANABIはShopee無在庫出品に対応できるツールです。ASIN貼り付けによる一括出品、価格・在庫・重量管理までを自動化できます。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "HANABIはどれくらいの頻度でアップデートされますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "現時点の実績ではHANABIは毎月一回以上改善・機能追加のアップデートを行っています。Shopeeの仕様変更や各国市場の動きに合わせ、実務で必要な機能を高頻度で反映しています。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Shopeeツールは初心者でも使えますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "はい。HANABIはShopee初心者の方でも使いやすい設計のShopeeツールです。ASIN貼り付けによる出品や自動化機能により、専門知識がなくても運用できます。複雑な設定を極力排除した、使いやすいツールです。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "無在庫出品はShopeeの規約違反になりませんか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Shopeeでは一定の条件を満たした無在庫出品は可能とされています。HANABIでは内部NGリストや出品制御機能により、規約違反リスクを抑えた運用が可能です。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "どの国のShopeeに対応していますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "HANABIはシンガポール、フィリピン、タイ、マレーシア、ベトナム、ブラジルなどの複数国のShopeeに対応しています。今後もShopeeの展開に合わせて対応国を拡張していく予定です。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "個人でもHANABIを利用できますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "はい。HANABIは個人・法人を問わずご利用いただけるShopeeツールです。小規模から中規模の運用まで幅広く対応しています。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "契約期間や解約条件はどうなっていますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "HANABIには最低利用期間の縛りはありません。いつでもご自身の判断で解約可能なため、安心して導入いただけます。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "他のShopeeツールとHANABIの違いは何ですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "HANABIはShopee公認である点が大きな特長です。複雑な設定を極力排除しているのも大きな特長です。高頻度アップデートによる進化スピードも評価されています。実務の声を反映しながら継続的に改善されるShopee自動化ツールです。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "HANABIはどのくらいの規模まで対応していますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "HANABIは月商100万円~500万円程のユーザー様が多いです。出品数は各国ごとに1万商品まで対応可能です。"
+      }
     }
-  }
-  </style>
+  ]
+}
+</script>
+
 </head>
 
 <body>
 
-  <!-- 画像1 -->
-  <img src="images/img1.png" alt="section image" class="section-image">
+  <!-- ================= H1 ================= -->
+  <header>
+    <h1>Shopeeツール「HANABI」｜Shopee出品・無在庫販売を自動化</h1>
+  </header>
 
-  <img src="images/img2.png" alt="section image" class="section-image">
+  <!-- ================= HERO ================= -->
+  <section>
+    <p>
+      HANABIは、Shopee販売者向けに設計された<strong>Shopeeツール</strong>です。
+    </p>
 
-  <img src="images/img3.png" alt="section image" class="section-image">
-  <img src="images/img4.png" alt="section image" class="section-image">
-  <img src="images/img5.png" alt="section image" class="section-image">
-  <img src="images/img6.png" alt="section image" class="section-image">
-   <img src="images/img7.png" alt="section image" class="section-image" style="width: 60%; margin: 0 auto;">
+    <p>
+      Shopee公認の在庫管理システム（出品ツール）として、
+      Shopee出品・在庫管理・商品管理・価格調整までを自動化します。
+    </p>
 
-<!-- お問い合わせセクション -->
+    <p>
+      海外販売に伴う不安・手間・ミスを大幅に削減します。
+    </p>
+
+    <p>
+      HANABIの最大の特長は、
+      <strong>リリース頻度の高さと進化スピード</strong>です。
+    </p>
+
+    <p>
+      Shopeeの仕様変更や各国市場の動きに合わせて、
+      実務に必要な機能を継続的かつ高頻度で追加・改善しています。
+    </p>
+
+    <p>
+      Shopeeを始めたいが難しそう。
+    </p>
+
+    <p>
+      アップデートの無いツールはShopeeの仕様変更で動かなくなるから嫌だ。
+    </p>
+
+    <p>
+      無在庫出品の管理が不安。
+    </p>
+
+    <p>
+      作業が多すぎる。
+    </p>
+
+    <p>
+      そんな悩みを抱えるセラーのために開発された、
+      実務特化型の<strong>Shopee出品ツール</strong>です。
+    </p>
+  </section>
+
+  <section>
+  <div class="image-block">
+    <img
+      src="images/img2.png"
+      alt="ShopeeツールHANABIの管理画面"
+    >
+  </div>
+</section>
+  <!-- ================= TRUST ================= -->
+  <section>
+    <h2>Shopee公式公認 × 常に進化し続けるShopeeツール</h2>
+
+    <p>
+      HANABIは、Shopee公式の認定を受けた<strong>Shopeeツール</strong>です。
+    </p>
+
+    <p>
+      Shopee社の基準を満たしています。
+    </p>
+
+    <p>
+      公開から約1年後には、
+      Shopee Japan様とコラボレーションし、
+      ユーザー向けキャンペーンを実施しました。
+    </p>
+
+    <p>
+      これは、
+      Shopeeツールとしての実績と信頼性の証です。
+    </p>
+
+    <p>
+      さらにHANABIは、
+      公開して終わりではありません。
+    </p>
+
+    <p>
+      Shopeeの変更に即座に対応し、これまでほぼ毎月のように改善・機能追加を継続しています。
+    </p>
+
+    <p>
+      実績の一例として、新しい市場にもわずか2週間程度で対応しました。
+    </p>
+
+    <ul>
+      <li>Shopeeブラジル越境EC開始：2025年2月24日</li>
+      <li>HANABIブラジル対応開始：2025年3月9日</li>
+    </ul>
+
+    <p>
+      Shopee側の動きに追随するだけではありません。
+    </p>
+
+    <p>
+      実務で使える形に即座に落とし込む開発体制を取っています。
+    </p>
+  </section>
+  <section>
+    <div class="image-block">
+      <img
+        src="images/img3.png"
+        alt="Shopeeにおける悩みを解決するのはHANABI"
+      >
+    </div>
+  </section>
+  
+  <!-- ================= REASONS ================= -->
+  <section>
+    <h2>ShopeeツールとしてHANABIが選ばれる理由</h2>
+
+    <h3>Webシステムで環境構築不要</h3>
+
+    <p>
+      HANABIはWebブラウザで利用できるShopeeツールです。
+    </p>
+
+    <p>
+      高性能PCや仮想PCは不要です。
+    </p>
+
+    <p>
+      ツールを動作させるために月額数千円〜1万円程度PCを準備するコストもかかりません。
+    </p>
+
+    <p>
+      思い立ったその日からShopee出品を始められます。
+    </p>
+
+    <h3>最低利用期間なし</h3>
+
+    <p>
+      最低契約期間の縛りはありません。
+    </p>
+
+    <p>
+      いつでもご自身の判断で解約可能です。
+    </p>
+
+    <p>
+      Shopee無在庫出品ツールを、
+      まず試すという判断ができます。
+    </p>
+
+    <h3>高頻度アップデートを前提にした設計</h3>
+
+    <p>
+      ユーザー様にメリットのある対応はなるべく早く行います。
+    </p>
+
+    <p>
+      Shopee運用全体の効率化と安全性向上を最優先しています。
+    </p>
+
+    <p>
+      小さな改善や調整も含めて、
+      実務目線のアップデートを継続しています。
+    </p>
+  </section>
+
+  <!-- ================= FEATURES ================= -->
+  <section>
+    <h2>Shopee出品・無在庫出品を自動化する主な機能</h2>
+
+    <h3>複数ASIN一括出品</h3>
+    <div class="image-block">
+      <img
+        src="images/g_img1.png"
+        alt="HANABIの複数ASIN一括出品機能"
+      >
+    </div>
+    <p>
+      AmazonのASINを貼り付けて、
+      1クリックするだけで一度に複数商品の出品が可能です。
+    </p>
+
+    <p>
+      画像を編集し、商品名・説明文・仕様をAI翻訳します。
+    </p>
+
+    <p>
+      翻訳後はそのままShopeeに出品できます。
+    </p>
+
+    <ul>
+      <li>英語対応</li>
+      <li>タイ語対応</li>
+      <li>ベトナム語対応</li>
+      <li>ポルトガル語対応</li>
+    </ul>
+
+    <p>
+      翻訳機能も継続的に強化しています。
+    </p>
+
+    <h3>バリエーション出品の完全自動化</h3>
+    <div class="image-block">
+      <img
+        src="images/g_img2.png"
+        alt="HANABIのバリエーション出品機能"
+      >
+    </div>
+    <p>
+      Shopeeのバリエーション仕様に準じて、
+      サイズやカラーなどのバリエーションを保持したまま出品します。
+    </p>
+
+    <p>
+      手作業は不要で、ミスを防止できます。
+    </p>
+
+    <h3>商品管理・移植による運用効率化</h3>
+
+    <p>
+      商品管理調整機能を搭載しています。
+    </p>
+
+    <p>
+      商品移植機能にも対応しています。
+    </p>
+
+    <p>
+      大量商品を扱う場合でも、
+      修正や再展開の手間を最小限に抑えます。
+    </p>
+  </section>
+
+  <!-- ================= SAFETY ================= -->
+  <section>
+    <h2>Shopee出品のリスクを防ぐ安全対策機能</h2>
+
+    <h3>内部NGリスト × ユーザーNGリスト</h3>
+    <div class="image-block">
+      <img
+        src="images/g_img6.png"
+        alt="HANABIの出品NGリスト機能"
+      >
+    </div>
+    <p>
+      仕様変更や過去事例をもとに、
+      内部NGリストを随時アップデートしています。
+    </p>
+
+    <p>
+      Shopee無在庫出品にありがちな、
+      うっかり違反を未然に防止します。
+    </p>
+
+    <h3>出品個数調整・UNLIST出品</h3>
+
+    <p>
+      市場状況に応じた出品制御が可能です。
+    </p>
+
+    <p>
+      在庫状況に応じた柔軟な運用ができます。
+    </p>
+  </section>
+
+  <!-- ================= PRICE ================= -->
+  <section>
+    <h2>価格・利益を自動管理するShopeeツール</h2>
+
+    <h3>為替・Amazon価格自動連動</h3>
+    <div class="image-block">
+      <img
+        src="images/g_img10.png"
+        alt="ShopeeツールHANABIの為替連動・価格連動機能"
+      >
+    </div>
+    <p>
+      為替変動に連動します。
+    </p>
+
+    <p>
+      Amazon価格の変動にも連動できます。
+    </p>
+
+    <p>
+      Shopeeで出品すべき価格に自動で計算し調整します。
+    </p>
+
+    <h3>国別送料自動計算・重量制限対応</h3>
+
+    <p>
+      国ごとの送料仕様に対応しています。
+    </p>
+
+    <p>
+      国ごとの重量制限にも対応しています。
+    </p>
+
+    <p>
+      仕様変更に合わせてロジックを更新しています。
+    </p>
+  </section>
+
+  <!-- ================= OPERATIONS ================= -->
+  <section>
+    <h2>出品タイミング・大量運用を支える機能</h2>
+
+    <p>
+      予約出品に対応しています。
+    </p>
+
+    <p>
+      一括再出品が可能です。
+    </p>
+
+    <p>
+      一括削除にも対応しています。
+    </p>
+
+    <p>
+      大量商品を扱っても、
+      作業が止まらない設計です。
+    </p>
+  </section>
+
+  <!-- ================= IMAGE AI ================= -->
+  <section>
+    <h2>画像・商品ページの最適化</h2>
+
+    <p>
+      商品画像フレームを自動加工します。
+    </p>
+    <div class="image-block">
+      <img
+        src="images/g_img3.png"
+        alt="ShopeeツールHANABIの画像フレーム加工機能"
+      >
+    </div>
+    <p>
+      AI商品編集機能を搭載し、画像・文章の生成が可能です。
+    </p>
+    <p>
+      実例と合わせてプロンプト例も提供しています。実務ニーズを反映して進化しています。
+    </p>
+    <div class="image-block">
+      <img
+        src="images/img8.png"
+        alt="ShopeeツールHANABIのAI編集機能"
+      >
+    </div>
+  </section>
+
+  <!-- ================= LOGISTICS ================= -->
+  <section>
+    <h2>注文・物流・顧客対応までShopee自動化</h2>
+
+    <p>
+      Shopeeチャットサポート機能を提供しています。
+    </p>
+
+    <p>
+      倉庫連携機能に対応しています。
+    </p>
+    <div class="image-block">
+      <img
+        src="images/g_img11.png"
+        alt="ShopeeツールHANABIのAI編集機能"
+      >
+    </div>
+    <p>
+      受注から発送、
+      問い合わせ対応まで一元管理できます。
+    </p>
+  </section>
+
+  <!-- ================= ANALYTICS ================= -->
+  <section>
+    <h2>分析・マーケット把握機能</h2>
+
+    <p>
+      マーケット検索機能を搭載しています。
+    </p>
+
+    <p>
+      売上ダッシュボードを確認できます。
+    </p>
+
+    <p>
+      運用の声を反映して進化してきた機能群です。
+    </p>
+  </section>
+
+<!-- ===== ミニお問い合わせCTA ===== -->
+<section class="micro-cta-section">
+<div class="micro-cta">
+  <span class="micro-cta-text">
+    HANABIに関するご相談はこちら →
+  </span>
+
+    <div class="mini-cta-action">
+      <a
+        href="https://forms.gle/Wei9GRR1WXy8iVwd7"
+        target="_blank"
+        rel="noopener"
+        class="mini-cta-button"
+      >
+        お問い合わせフォームを開く
+      </a>
+    </div>
+</div>
+</section>
+  <!-- ================= RESULTS ================= -->
+  <section>
+    <h2>HANABIで実現できること</h2>
+    <ul>
+      <li>外国語が分からなくてもShopee出品が可能</li>
+      <li>無在庫出品を含む出品作業の自動化</li>
+      <li>出品禁止・価格ミス・重量超過の防止</li>
+      <li>人力運用からの脱却</li>
+      <li>海外市場への継続的な展開</li>
+    </ul>
+  </section>
+
+  <!-- ================= TARGET ================= -->
+  <section>
+    <h2>こんな方におすすめのShopeeツールです</h2>
+    <ul>
+      <li>Shopeeをこれから始めたい方</li>
+      <li>Shopee無在庫出品を自動化したい方</li>
+      <li>ツールが進化し続けることを重視したい方</li>
+      <li>小規模〜中規模で安定運用を目指す方</li>
+    </ul>
+  </section>
+<!-- ================= FAQ ================= -->
+<section id="faq">
+  <h2>よくある質問（FAQ）</h2>
+
+  <div class="faq-item">
+    <h3>HANABIはShopee公式のツールですか？</h3>
+    <p>はい。HANABIはShopee公式の認定を受けたShopeeツールです。</p>
+    <p>Shopee社の基準を満たし、公式に認められています。</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>HANABIはShopeeの無在庫出品に対応していますか？</h3>
+    <p>はい。HANABIはShopee無在庫出品に対応できるツールです。</p>
+    <p>ASIN貼り付けによる一括出品、価格・在庫管理までを自動化できます。</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>HANABIはどのくらいの規模まで対応していますか？</h3>
+    <p>HANABIは月商100万円~500万円程のユーザー様が多いです。</p>
+    <p>出品数は各国ごとに1万商品まで対応可能です。</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>HANABIはどれくらいの頻度でアップデートされますか？</h3>
+    <p>現時点の実績ではHANABIは毎月一回以上改善・機能追加のアップデートを行っています。</p>
+    <p>Shopeeの仕様変更や各国市場の動きに合わせ、実務で必要な機能を高頻度で反映しています。</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>Shopeeツールは初心者でも使えますか？</h3>
+    <p>はい。HANABIはShopee初心者の方でも使いやすい設計のShopeeツールです。</p>
+    <p>ASIN貼り付けによる出品や自動化機能により、専門知識がなくても運用できます。</p>
+    <p>複雑な設定を極力排除した、使いやすいツールです。</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>無在庫出品はShopeeの規約違反になりませんか？</h3>
+    <p>Shopeeでは一定の条件を満たした無在庫出品は可能とされています。</p>
+    <p>HANABIでは内部NGリストや出品制御機能により、規約違反リスクを抑えた運用が可能です。</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>どの国のShopeeに対応していますか？</h3>
+    <p>HANABIはシンガポール、フィリピン、タイ、マレーシア、ベトナム、ブラジルなど複数国のShopeeに対応しています。</p>
+    <p>今後もShopeeの展開に合わせて対応国を拡張していく予定です。</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>個人でもHANABIを利用できますか？</h3>
+    <p>はい。HANABIは個人・法人を問わずご利用いただけるShopeeツールです。</p>
+    <p>小規模から中規模の運用まで幅広く対応しています。</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>契約期間や解約条件はどうなっていますか？</h3>
+    <p>HANABIには最低利用期間の縛りはありません。</p>
+    <p>いつでもご自身の判断で解約可能なため、安心して導入いただけます。</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>他のShopeeツールとHANABIの違いは何ですか？</h3>
+    <p>HANABIはShopee公認である点が大きな特長です。</p>
+    <p>複雑な設定を極力排除しているのも大きな特長です。</p>
+    <p>高頻度アップデートによる進化スピードも評価されています。</p>
+    <p>実務の声を反映しながら継続的に改善されるShopee自動化ツールです。</p>
+  </div>
+</section>
+
+
+  <!-- ================= RELEASE NOTES ================= -->
+  <section>
+    <h2>直近の更新（抜粋）</h2>
+    <ul>
+      <li>v2.0.0（2026/01/11）：チャット転送機能</li>
+      <li>v1.7.3（2025/12/31）：商品指定一括削除、倍率調整</li>
+      <li>v1.7.2（2025/12/24）：内部NGリスト機能</li>
+      <li>v1.7.1（2025/12/23）：設定機能強化</li>
+      <li>v1.6.2（2025/11/29）：マーケット検索機能</li>
+      <li>v1.6.1（2025/11/28）：出品機能調整</li>
+      <li>v1.6.0（2025/11/05）：AI商品編集機能</li>
+      <li>v1.5.2（2025/09/23）：カテゴリ展開機能</li>
+      <li>v1.5.0（2025/08/15）：商品移植機能</li>
+      <li>v1.4.1（2025/08/05）：翻訳機能強化</li>
+      <li>v1.4.0（2025/06/04）：商品管理調整機能</li>
+      <li>v1.3.1（2025/03/24）：予約出品機能</li>
+      <li>v1.3.0（2025/03/09）：ブラジル対応</li>
+      <li>v1.2.1（2025/01/22）：出品個数調整・一括再出品</li>
+      <li>v1.2.0（2025/01/02）：出荷画面編集</li>
+      <li>v1.1.0（2024/11/01）：契約倉庫連携機能</li>
+      <li>v1.0.2（2024/10/01）：バリエーション出品</li>
+      <li>v1.0.0（2024/09/01）：公開</li>
+    </ul>
+  </section>
+
+  <!-- お問い合わせセクション -->
 <div class="cta-section">
   <div class="cta-container">
 
     <h2 class="cta-title">お問い合わせ</h2>
+
     <p class="cta-text">
-      ご不明点やご相談がございましたら、こちらよりお問い合わせください。
-      <br>担当者より迅速にご連絡いたします。
+      ご不明点やご相談がございましたら、こちらよりお問い合わせください。<br>
+      Shopeeツールの使い方・無在庫出品の不安・導入前の相談など、<br>
+      担当者が内容を確認し、迅速にご連絡いたします。
     </p>
 
-    <a class="cta-button" href="https://forms.gle/Wei9GRR1WXy8iVwd7" target="_blank" rel="noopener">
+    <a
+      class="cta-button"
+      href="https://forms.gle/Wei9GRR1WXy8iVwd7"
+      target="_blank"
+      rel="noopener"
+    >
       お問い合わせフォームを開く
     </a>
-
   </div>
 </div>
+<!-- ===== Other Service : AI導入サポート ===== -->
+<section class="sub-service-mini">
+  <h3 class="sub-service-title">
+    AI導入のゼロイチ支援も行っています
+  </h3>
 
+  <p>
+    当社では、Shopeeツール「HANABI」の開発・運営とは別に、<br>
+    <strong>AI導入のゼロイチ支援（月額のサービスです）</strong>も行っています。
+  </p>
+
+  <p>
+    数億円規模の大規模システム開発から数万円規模の小規模な業務効率化まで、<br>
+    幅広い開発経験を持つエンジニアがサポートします。
+  </p>
+
+  <p>
+    お客様ごとの<strong>業務内容・ITリテラシー・体制</strong>に合わせ、<br>
+    「何から始めるべきか」「どこまで自動化できるか」のご相談承ります。
+  </p>
+
+  <p>
+    AIの進化により、これまで時間やコストの壁で難しかったIT活用が<br>
+    現実的な選択肢になりつつあります。
+  </p>
+
+  <p>
+    今こそ、これまで人手や外注に頼ってきた業務を見直すチャンスです。
+  </p>
+</section>
+
+<div class="image-block">
+  <img
+    src="images/img1.png"
+    alt="ShopeeツールHANABIの管理画面"
+  >
+</div>
+<footer>
+  <a href="https://yourcompany.jp/terms">利用規約</a> |
+  <a href="https://yourcompany.jp/privacy">プライバシーポリシー</a> |
+  <a href="https://yourcompany.jp/tokushoho">特定商取引法に基づく表記</a>
+  <a>© HANABI</a>
+</footer>
 </body>
 </html>
