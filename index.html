@@ -75,6 +75,14 @@
   box-shadow: 0 12px 28px rgba(0,0,0,0.12);
 }
 
+/* 画像下の注意書き */
+.image-note {
+  margin: 10px 0 0;
+  font-size: 0.78em;
+  color: #999;
+  text-align: center;
+}
+
 @media (max-width: 768px) {
   body {
     font-size: 17.5px;  /* ← スマホ用 */
@@ -131,6 +139,210 @@
   strong {
     color: var(--main);
     font-weight: 600;
+  }
+
+  /* ================= TAB SWITCHER ================= */
+  .tab-nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 12px;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid #eee;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+  }
+
+  .tab-button {
+    flex: 0 1 340px;
+    padding: 16px 18px;
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    line-height: 1.3;
+    color: #666;
+    background: #f0f1f3;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: color 0.2s, background 0.2s, border-color 0.2s;
+    text-align: center;
+  }
+
+  .tab-button:hover {
+    background: #e9eaec;
+  }
+
+  .tab-button[aria-selected="true"] {
+    color: #fff;
+    background: linear-gradient(135deg, #ff5722, #ff784e);
+    border-color: #ff5722;
+    box-shadow: 0 6px 16px rgba(255, 87, 34, 0.3);
+  }
+
+  .tab-panel[hidden] {
+    display: none;
+  }
+
+  @media (max-width: 768px) {
+    .tab-nav {
+      gap: 6px;
+      padding: 8px;
+    }
+    .tab-button {
+      padding: 12px 8px;
+      font-size: 1.1rem;
+    }
+  }
+
+  /* ================= 口コミ引用カード ================= */
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    margin: 32px 0;
+  }
+
+  .review-card {
+    position: relative;
+    background: #fafafa;
+    border: 1px solid #eee;
+    border-left: 4px solid var(--main);
+    border-radius: 10px;
+    padding: 24px 24px 20px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+  }
+
+  .review-card .quote-mark {
+    font-size: 3rem;
+    line-height: 0.6;
+    color: #ffccbc;
+    font-family: Georgia, serif;
+  }
+
+  .review-body {
+    font-size: 0.98em;
+    line-height: 1.85;
+    margin: 10px 0 18px;
+    color: #333;
+  }
+
+  .review-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+    font-size: 0.82em;
+    color: #888;
+    border-top: 1px dashed #ddd;
+    padding-top: 12px;
+  }
+
+  .review-author {
+    font-weight: 600;
+    color: #555;
+  }
+
+  .review-source {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    color: var(--main);
+    text-decoration: none;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .review-source:hover {
+    text-decoration: underline;
+  }
+
+  /* ================= 料金プランカード ================= */
+  .plan-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    margin: 32px 0;
+  }
+
+  .plan-card {
+    background: #fafafa;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 28px 24px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+  }
+
+  .plan-card-featured {
+    border: 2px solid var(--main);
+    background: #fff8f5;
+  }
+
+  .plan-badge {
+    display: inline-block;
+    font-size: 0.75em;
+    font-weight: 700;
+    color: #fff;
+    background: var(--main);
+    border-radius: 999px;
+    padding: 4px 14px;
+    margin-bottom: 10px;
+  }
+
+  .plan-name {
+    font-weight: 700;
+    font-size: 1.05em;
+    margin: 0 0 4px;
+  }
+
+  .plan-price {
+    font-size: 1.35em;
+    margin: 0 0 8px;
+  }
+
+  .plan-price .plan-price-sub {
+    display: block;
+    font-size: 0.6em;
+    color: #888;
+    font-weight: 500;
+    margin-top: 2px;
+  }
+
+  .plan-card ul {
+    margin: 14px 0 0 22px;
+  }
+
+  .plan-card li {
+    font-size: 0.92em;
+    margin-bottom: 8px;
+  }
+
+  .reviews-source-cta {
+    text-align: center;
+    margin-top: 36px;
+  }
+
+  .reviews-source-button {
+    display: inline-block;
+    background: #fff;
+    color: var(--main);
+    border: 2px solid var(--main);
+    text-decoration: none;
+    font-size: 1.02em;
+    font-weight: 700;
+    padding: 14px 32px;
+    border-radius: 999px;
+    transition: background 0.2s, color 0.2s, transform 0.2s;
+  }
+
+  .reviews-source-button:hover {
+    background: var(--main);
+    color: #fff;
+    transform: translateY(-2px);
   }
 
   /* スマホ調整 */
@@ -367,6 +579,82 @@
   color: #555;
 }
 
+/* ===== 姉妹サービス導線（HAKONABI） ===== */
+.sister-service {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-top: 44px;
+  border: 2px solid #ffd7c7;
+  background: linear-gradient(135deg, #fff8f5, #fff);
+  border-radius: 14px;
+  padding: 32px;
+}
+
+.sister-service .sister-text {
+  flex: 1 1 340px;
+}
+
+.sister-service .sister-label {
+  display: inline-block;
+  font-size: 0.78em;
+  font-weight: 700;
+  letter-spacing: .08em;
+  color: var(--main);
+  background: #fff0ea;
+  border-radius: 999px;
+  padding: 4px 14px;
+  margin-bottom: 12px;
+}
+
+.sister-service h3 {
+  margin: 0 0 10px;
+  font-size: 1.5rem;
+}
+
+.sister-service p {
+  margin: 0;
+  font-size: 0.95em;
+  line-height: 1.8;
+  color: #555;
+}
+
+.sister-service .sister-cta {
+  flex: 0 0 auto;
+}
+
+.sister-button {
+  display: inline-block;
+  background: var(--main);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.02em;
+  padding: 16px 34px;
+  border-radius: 999px;
+  white-space: nowrap;
+  box-shadow: 0 8px 20px rgba(255, 87, 34, 0.35);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.sister-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(255, 87, 34, 0.45);
+}
+
+@media (max-width: 768px) {
+  .sister-service {
+    padding: 24px 20px;
+  }
+  .sister-service .sister-cta,
+  .sister-button {
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+  }
+}
 
 </style>
 <script type="application/ld+json">
@@ -395,7 +683,7 @@
       "name": "HANABIはどれくらいの頻度でアップデートされますか？",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "現時点の実績ではHANABIは毎月一回以上改善・機能追加のアップデートを行っています。Shopeeの仕様変更や各国市場の動きに合わせ、実務で必要な機能を高頻度で反映しています。"
+        "text": "HANABIは公開（2024年9月）から27回以上のアップデートを実施しており、月平均1回以上のペースで改善を続けています。Shopeeの仕様変更や各国市場の動きに合わせ、実務で必要な機能を高頻度で反映しています。"
       }
     },
     {
@@ -453,6 +741,14 @@
         "@type": "Answer",
         "text": "HANABIは月商100万円~500万円程のユーザー様が多いです。出品数は各国ごとに1万商品まで対応可能です。"
       }
+    },
+    {
+      "@type": "Question",
+      "name": "HANABIの料金はどこで確認できますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "HANABIは初期費用0円の月額制です。具体的な料金プランは、お問い合わせいただければすぐにご案内します。お見積りのみのお問い合わせも歓迎です。通常プランは最低利用期間の縛りがなく、月単位でいつでも解約できます。"
+      }
     }
   ]
 }
@@ -467,51 +763,86 @@
     <h1>Shopeeツール「HANABI」｜Shopee出品・無在庫販売を自動化</h1>
   </header>
 
+  <!-- ================= TAB NAV ================= -->
+  <nav class="tab-nav" role="tablist" aria-label="ツール切り替え">
+    <button
+      class="tab-button"
+      id="tab-hanabi"
+      role="tab"
+      aria-selected="true"
+      aria-controls="panel-hanabi"
+    >
+      HANABI
+    </button>
+    <button
+      class="tab-button"
+      id="tab-hako"
+      role="tab"
+      aria-selected="false"
+      aria-controls="panel-hako"
+    >
+      HAKONAVI
+    </button>
+  </nav>
+
+  <!-- ================= PANEL: HANABI ================= -->
+  <div id="panel-hanabi" class="tab-panel" role="tabpanel" aria-labelledby="tab-hanabi">
+
   <!-- ================= HERO ================= -->
   <section>
-    <p>
-      HANABIは、Shopee販売者向けに設計された<strong>Shopeeツール</strong>です。
-    </p>
+    <h2>翻訳も価格も自動で、海外のShopeeに簡単一括出品。</h2>
 
     <p>
-      Shopee公認の在庫管理システム（出品ツール）として、
-      Shopee出品・在庫管理・商品管理・価格調整までを自動化します。
+      HANABIは、Shopee販売者向けに設計された<strong>Shopeeツール</strong>です。<br>
+      Shopee公認の在庫管理システム（出品ツール）として、Shopee出品・在庫管理・商品管理・価格調整までを自動化します。<br>
     </p>
 
-    <p>
-      海外販売に伴う不安・手間・ミスを大幅に削減します。
-    </p>
+    <p>こんな悩みはありませんか？</p>
+
+    <ul>
+      <li>Shopeeを始めたいが、難しそう</li>
+      <li>仕様変更でツールが使えなくなるのが怖い</li>
+      <li>無在庫出品の管理が不安</li>
+      <li>とにかく作業が多すぎる</li>
+    </ul>
 
     <p>
-      HANABIの最大の特長は、
-      <strong>リリース頻度の高さと進化スピード</strong>です。
+      HANABIは、そんな悩みを抱えるセラーのために作られた<strong>実務特化型のShopee出品ツール</strong>です。
     </p>
 
-    <p>
-      Shopeeの仕様変更や各国市場の動きに合わせて、
-      実務に必要な機能を継続的かつ高頻度で追加・改善しています。
-    </p>
+    <ul>
+      <li>✔ <strong>Shopee公式の認定</strong>をうけたツール</li>
+      <li>✔ 台湾・タイ・ブラジルなど各国のShopeeに<strong>外国語がわからなくても</strong>出品可能</li>
+      <li>✔ 公開から約1年で<strong>Shopee Japan様とのコラボキャンペーン</strong>を実施</li>
+      <li>✔ 公開から<strong>ほぼ毎月のアップデート</strong>を継続中（履歴はページ下部に一部掲載）</li>
+    </ul>
 
-    <p>
-      Shopeeを始めたいが難しそう。
-    </p>
+    <div class="reviews-source-cta">
+      <a
+        class="reviews-source-button"
+        href="https://forms.gle/Wei9GRR1WXy8iVwd7"
+        target="_blank"
+        rel="noopener"
+      >
+        導入前の相談をしてみる（無料）
+      </a>
+    </div>
 
-    <p>
-      アップデートの無いツールはShopeeの仕様変更で動かなくなるから嫌だ。
-    </p>
-
-    <p>
-      無在庫出品の管理が不安。
-    </p>
-
-    <p>
-      作業が多すぎる。
-    </p>
-
-    <p>
-      そんな悩みを抱えるセラーのために開発された、
-      実務特化型の<strong>Shopee出品ツール</strong>です。
-    </p>
+    <!-- 無在庫／有在庫の分岐案内 -->
+    <div class="sister-service">
+      <div class="sister-text">
+        <span class="sister-label">どちらを選べばいい？</span>
+        <h3>在庫を持たない方はHANABI<br>
+          在庫を持つ方はHAKONAVI</h3>
+        <p>
+          在庫を持たずに始めたい方は、このままHANABIをご覧ください。
+          日本に在庫があり、複数国へ展開したい方には在庫管理ツール「HAKONAVI」があります。
+        </p>
+      </div>
+      <div class="sister-cta">
+        <a class="sister-button" href="#hako" data-tab="hako">HAKONAVIを見る →</a>
+      </div>
+    </div>
   </section>
 
   <section>
@@ -551,7 +882,7 @@
     </p>
 
     <p>
-      Shopeeの変更に即座に対応し、これまでほぼ毎月のように改善・機能追加を継続しています。
+      Shopeeの変更に即座に対応し、公開（2024年9月）からほぼ毎月の改善・機能追加を継続しています。
     </p>
 
     <p>
@@ -617,7 +948,7 @@
       まず試すという判断ができます。
     </p>
 
-    <h3>高頻度アップデートを前提にした設計</h3>
+    <h3>大規模案件を管理するエンジニアの高頻度アップデート可能な設計</h3>
 
     <p>
       ユーザー様にメリットのある対応はなるべく早く行います。
@@ -673,7 +1004,7 @@
       JANコード・成分情報・原産国を自動取得し、出品情報に反映します。
     </p>
 
-    <h3>バリエーション出品の完全自動化</h3>
+    <h3>バリエーション出品の自動化</h3>
     <div class="image-block">
       <img
         src="images/g_img2.png"
@@ -723,7 +1054,7 @@
 
     <p>
       Shopee無在庫出品にありがちな、
-      うっかり違反を未然に防止します。
+      うっかり違反のリスクを大きく減らします。
     </p>
 
     <h3>出品個数調整・UNLIST出品</h3>
@@ -748,56 +1079,31 @@
         alt="ShopeeツールHANABIの為替連動・価格連動機能"
       >
     </div>
-    <p>
-      為替変動に連動します。
-    </p>
-
-    <p>
-      Amazon価格の変動にも連動できます。
-    </p>
-
-    <p>
-      Shopeeで出品すべき価格に自動で計算し調整します。
-    </p>
+    <ul>
+      <li>為替変動に連動</li>
+      <li>Amazon価格の変動にも連動可能</li>
+      <li>Shopeeで出品すべき価格に自動で計算し調整</li>
+    </ul>
 
     <h3>国別送料自動計算・重量制限対応</h3>
 
-    <p>
-      国ごとの送料仕様に対応しています。
-    </p>
-
-    <p>
-      国ごとの重量制限にも対応しています。
-    </p>
-
-    <p>
-      仕様変更に合わせてロジックを更新しています。
-    </p>
+    <ul>
+      <li>国ごとの送料仕様に対応</li>
+      <li>国ごとの重量制限に対応</li>
+      <li>仕様変更に合わせてロジックを継続更新</li>
+    </ul>
   </section>
 
   <!-- ================= OPERATIONS ================= -->
   <section>
     <h2>出品タイミング・大量運用を支える機能</h2>
 
-    <p>
-      予約出品に対応しています。
-    </p>
-
-    <p>
-      一括再出品が可能です。
-    </p>
-
-    <p>
-      一括削除にも対応しています。
-    </p>
-
-    <p>
-      自動バンプ機能に対応しています。
-    </p>
-
-    <p>
-      出品を自動で再表示し、露出を維持します。
-    </p>
+    <ul>
+      <li>予約出品に対応</li>
+      <li>一括再出品が可能</li>
+      <li>一括削除にも対応</li>
+      <li>自動バンプ機能に対応（出品を自動で再表示し、露出を維持）</li>
+    </ul>
 
     <p>
       大量商品を扱っても、
@@ -886,7 +1192,7 @@
         rel="noopener"
         class="mini-cta-button"
       >
-        お問い合わせフォームを開く
+        導入前の相談をしてみる（無料）
       </a>
     </div>
 </div>
@@ -914,6 +1220,26 @@
     </ul>
   </section>
 <!-- ================= FAQ ================= -->
+<!-- ================= PRICING ================= -->
+<section>
+  <h2>料金</h2>
+
+  <p>
+    HANABIは<strong>初期費用0円</strong>の月額制です。
+  </p>
+
+  <ul>
+    <li>通常プランは最低利用期間の縛りなし。<strong>月単位でいつでも解約</strong>できます</li>
+    <li>現在、<strong>チャットサポート＋継続割引つきの3ヶ月スターターパック</strong>もご用意しています</li>
+    <li>Webブラウザで利用できるため、高性能PCや仮想PCの追加コストは不要です</li>
+  </ul>
+
+  <p>
+    具体的な料金プランは、お問い合わせいただければすぐにご案内します。
+    <strong>お見積りのみのお問い合わせも歓迎</strong>です。
+  </p>
+</section>
+
 <section id="faq">
   <h2>よくある質問（FAQ）</h2>
 
@@ -937,7 +1263,7 @@
 
   <div class="faq-item">
     <h3>HANABIはどれくらいの頻度でアップデートされますか？</h3>
-    <p>現時点の実績ではHANABIは毎月一回以上改善・機能追加のアップデートを行っています。</p>
+    <p>HANABIは公開（2024年9月）から27回以上のアップデートを実施しており、月平均1回以上のペースで改善を続けています。</p>
     <p>Shopeeの仕様変更や各国市場の動きに合わせ、実務で必要な機能を高頻度で反映しています。</p>
   </div>
 
@@ -979,8 +1305,114 @@
     <p>高頻度アップデートによる進化スピードも評価されています。</p>
     <p>実務の声を反映しながら継続的に改善されるShopee自動化ツールです。</p>
   </div>
+
+  <div class="faq-item">
+    <h3>料金はどこで確認できますか？</h3>
+    <p>HANABIは初期費用0円の月額制です。</p>
+    <p>具体的な料金プランは、お問い合わせいただければすぐにご案内します。お見積りのみのお問い合わせも歓迎です。</p>
+    <p>通常プランは最低利用期間の縛りがなく、月単位でいつでも解約できます。</p>
+  </div>
 </section>
 
+<!-- ===== FAQ直後CTA ===== -->
+<section class="micro-cta-section">
+  <div class="micro-cta">
+    <span class="micro-cta-text">
+      解決しなかった疑問は、フォームから直接どうぞ →
+    </span>
+    <div class="mini-cta-action">
+      <a
+        href="https://forms.gle/Wei9GRR1WXy8iVwd7"
+        target="_blank"
+        rel="noopener"
+        class="mini-cta-button"
+      >
+        導入前の相談をしてみる（無料）
+      </a>
+    </div>
+  </div>
+</section>
+
+  <!-- ================= 導入事例・お客様の声（共通） ================= -->
+  <section>
+    <h2>お客様の声・導入事例</h2>
+
+    <p>
+      HANABIと同じ開発チームが手がける<strong>有在庫（在庫あり）出品ツール「HAKONAVI」</strong>では、
+      実際のセラー様から次のような声をいただいています。
+    </p>
+
+    <p>
+      同じチームによる開発力・サポート体制・Shopeeへの深い理解を示す実績として、
+      HANABIをご検討中の方にもご紹介します。
+      導入事例として公開をご了承いただけたのは現在1社ですが、
+      そのぶん編集で切り取らず、<strong>導入前の不安から月商3,000万円達成までを一問一答で全文公開</strong>しています。
+    </p>
+
+    <div class="reviews-grid">
+
+      <div class="review-card">
+        <div class="quote-mark">&ldquo;</div>
+        <p class="review-body">
+          出品は10分ほどかかっていたのがボタン操作で完結し、作業時間が約1/5に。利益率・利益額も見えるようになり、逆算して値段を再設定できるようになりました。
+        </p>
+        <div class="review-meta">
+          <a class="review-source" href="case-study-a.html" target="_blank" rel="noopener">出典を見る ↗</a>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="quote-mark">&ldquo;</div>
+        <p class="review-body">
+          在庫管理はシステム上で数値を入れれば、5か国の全ショップに反映され、非常に楽になりました。都度すべて手作業で調整していた頃とは大違いです。
+        </p>
+        <div class="review-meta">
+          <a class="review-source" href="case-study-a.html" target="_blank" rel="noopener">出典を見る ↗</a>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="quote-mark">&ldquo;</div>
+        <p class="review-body">
+          一度、別のシステム会社さんにお願いして頓挫した経験がありました。でも今回はShopeeに非常に詳しい方だったので、私が言う前に「こうやったらいいですよ」と先回りして構築してくださいました。
+        </p>
+        <div class="review-meta">
+          <a class="review-source" href="case-study-a.html" target="_blank" rel="noopener">出典を見る ↗</a>
+        </div>
+      </div>
+
+    </div>
+
+    <p class="image-note">
+      ※記載の成果（月商・作業時間等）は特定のお客様の事例であり、同様の成果を保証するものではありません。
+    </p>
+
+    <div class="reviews-source-cta">
+      <a
+        class="reviews-source-button"
+        href="case-study-a.html"
+        target="_blank"
+        rel="noopener"
+      >
+        HAKONAVIの導入事例を全文読む →
+      </a>
+    </div>
+
+    <!-- ===== 有在庫「HAKONAVI」への導線 ===== -->
+    <div class="sister-service">
+      <div class="sister-text">
+        <span class="sister-label">姉妹サービス</span>
+        <h3>有在庫の在庫管理なら「HAKONAVI」</h3>
+        <p>
+          在庫を唯一のソースに、各国・各ショップのShopee在庫を自動同期。
+          出品・価格・利益管理まで、有在庫のShopee多国展開をひとつのシステムにまとめます。
+        </p>
+      </div>
+      <div class="sister-cta">
+        <a class="sister-button" href="#hako" data-tab="hako">HAKONAVIを見る →</a>
+      </div>
+    </div>
+  </section>
 
   <!-- ================= RELEASE NOTES ================= -->
   <section>
@@ -1017,16 +1449,327 @@
     </ul>
   </section>
 
+  </div><!-- /panel-hanabi -->
+
+  <!-- ================= PANEL: HAKONAVI ================= -->
+  <div id="panel-hako" class="tab-panel" role="tabpanel" aria-labelledby="tab-hako" hidden>
+
+    <!-- ===== HAKONAVI 紹介（訴求＋ビジョン） ===== -->
+    <section>
+      <h2>Shopee有在庫販売の一元管理システム「HAKONAVI」</h2>
+
+      <p>
+        <strong>一度の商品登録で複数国へ出品。在庫も利益も、一か所で管理。</strong>
+      </p>
+
+      <p>
+        <strong>HAKONAVI</strong>は、HANABIと同じ開発チームが手がける、
+        Shopeeの<strong>有在庫販売</strong>に特化した在庫・出品・利益管理システムです。
+      </p>
+
+      <p>
+        商品情報を一度登録するだけで、複数の国・複数のショップへまとめて出品。
+        日本にある在庫を基準に、各国・各ショップの在庫数を自動で同期し、
+        仕入れ原価や販売後の利益まで、<strong>ひとつのシステムで管理</strong>できます。
+      </p>
+
+      <p>HAKONAVIを導入すると、こんな運用が実現します。</p>
+
+      <ul>
+        <li><strong>一度の商品登録で、複数国・複数ショップへまとめて出品</strong></li>
+        <li><strong>日本の在庫を変更するだけで、各国の在庫数へ自動反映</strong></li>
+        <li>注文やキャンセルに合わせて、<strong>在庫を自動で減算・復元</strong></li>
+        <li>仕入れ原価・手数料・為替を考慮した<strong>利益を可視化</strong></li>
+        <li>国別・店舗別の<strong>売上と利益をレポートで確認</strong></li>
+      </ul>
+
+      <p>
+        国やショップごとに同じ商品を何度も登録し、在庫数や販売価格を手作業で調整する必要はありません。
+        在庫合わせや価格の調整に追われる運用から、
+        <strong>数字を見ながら、伸ばすことに集中できる運用へ</strong>。
+        HAKONAVIは、あなたのShopee販売を次のステージへ引き上げます。
+      </p>
+
+      <!-- 導入事例リンク（上部固定） -->
+      <p>
+        こちらはHAKONAVIの導入事例です。
+        <strong>導入いただいて5か国・100%有在庫の運用で月商3,000万円</strong>を達成されたセラー様に、
+        導入前後の変化をうかがいました。
+      </p>
+
+      <div class="reviews-source-cta">
+        <a
+          class="reviews-source-button"
+          href="case-study-a.html"
+          target="_blank"
+          rel="noopener"
+        >
+          導入事例（インタビュー）を読む →
+        </a>
+      </div>
+    </section>
+
+    <!-- ================= HAKONAVI 機能：在庫同期 ================= -->
+    <section>
+      <h2>在庫は1か所。あとは自動で全店に反映</h2>
+
+      <div class="image-block">
+        <img
+          src="images/hako_a_1.png"
+          alt="HAKONAVIの在庫自動同期のイメージ"
+        >
+      </div>
+
+      <p>
+        Shopeeの注文・キャンセルをHAKONAVIが自動で受け取り、
+        <strong>在庫を自動で減算・復元</strong>します。
+      </p>
+
+      <p>
+        複数ストアで同じ商品を売っていても、注文が入った順に在庫を消費する仕組みのため、
+        <strong>残り在庫を気にせず、全ショップで同時に販売を伸ばせます</strong>。
+      </p>
+
+      <p>
+        セット商品（複数商品をまとめた販売）にも対応し、
+        在庫からバンドル在庫を自動計算します。
+      </p>
+
+    </section>
+
+    <!-- ================= HAKONAVI 機能：出品 ================= -->
+    <section>
+      <h2>日本の商品を、複数ショップへまとめて出品</h2>
+
+      <div class="image-block">
+        <img
+          src="images/hako_a_2.png"
+          alt="HAKONAVIの複数ショップ同時出品のイメージ"
+        >
+      </div>
+
+      <p>
+        日本の商品情報を一度登録するだけで、
+        <strong>複数の国・ショップへ同時に出品</strong>できます。
+      </p>
+
+      <ul>
+        <li>国別・ショップ別の価格を<strong>為替レートから自動計算</strong></li>
+        <li>各国向けの商品名・説明文をローカライズして登録可能</li>
+        <li>カテゴリー・属性・ブランドの選択に対応</li>
+        <li>商品画像は最大9枚までアップロード可能</li>
+        <li>バリエーション出品（サイズ・カラーなど）に対応</li>
+        <li>卸売価格（Wholesale）・予約公開・最小/最大購入数の設定</li>
+      </ul>
+
+      <p>
+        有在庫の多国展開に必要な出品作業を、まとめて効率化します。
+      </p>
+    </section>
+
+    <!-- ================= HAKONAVI 機能：価格・利益 ================= -->
+    <section>
+      <h2>価格・在庫・利益をまとめて管理</h2>
+
+      <div class="image-block">
+        <img
+          src="images/hako_a_4.png"
+          alt="HAKONAVIの価格・在庫・利益管理のイメージ"
+        >
+        <p class="image-note">※画像はイメージです。実際の商品画面とは異なります。</p>
+      </div>
+
+      <p>
+        仕入れ価格・販売価格・在庫数を<strong>一括で管理</strong>できます。
+      </p>
+
+      <p>
+        全出品商品を一覧で確認でき、
+        <strong>原価・現在価格・在庫に加え、販売時の利益（現地通貨・日本円）まで可視化</strong>。
+        「なんとなく」の値付けから、根拠のある価格設定へ切り替えられます。
+      </p>
+    </section>
+
+    <!-- ================= HAKONAVI 機能：レポート ================= -->
+    <section>
+      <h2>利益レポートで、月商・利益を把握</h2>
+
+      <div class="image-block">
+        <img
+          src="images/hako_a_5.png"
+          alt="HAKONAVIの利益レポートのイメージ"
+        >
+        <p class="image-note">※画像はイメージです。実際の商品画面とは異なります。</p>
+      </div>
+
+      <p>
+        期間・国・店舗を指定して、<strong>利益レポート</strong>を確認できます。
+      </p>
+
+      <ul>
+        <li>注文ごとに売上・原価・手数料・利益を集計</li>
+        <li>現地通貨と日本円の両方で表示（為替レートも記録）</li>
+        <li><strong>CSVエクスポート</strong>に対応し、社内管理にもそのまま活用可能</li>
+      </ul>
+    </section>
+
+    <!-- ================= HAKONAVI 機能：多国対応・安定運用 ================= -->
+    <section>
+      <h2>多国対応と、安定運用を支える仕組み</h2>
+
+      <h3>7か国・複数ショップに対応</h3>
+      <p>
+        シンガポール・フィリピン・マレーシア・タイ・ベトナム・台湾・ブラジルに対応。
+        各国で複数ショップを接続して運用できます。
+      </p>
+
+      <h3>いつでも正確な在庫数で販売できる</h3>
+      <p>
+        HAKONAVIは、同期して終わりではありません。
+        <strong>実際の注文データと在庫数を、毎日自動で突き合わせ</strong>ています。
+      </p>
+      <ul>
+        <li>日次の自動照合で、在庫数は<strong>常に実態どおり</strong></li>
+        <li>在庫の動きは<strong>アラートでいつでも把握</strong>。数え直しや確認作業に時間を取られません</li>
+      </ul>
+
+      <p>
+        数字がいつも合っているから、
+        在庫のことは考えず、<strong>売ることだけに集中できます</strong>。
+      </p>
+    </section>
+
+    <!-- ================= HAKONAVI まとめ ================= -->
+    <section>
+      <h2>HAKONAVIで実現できること</h2>
+      <ul>
+        <li>在庫を1か所で管理し、全ショップの在庫を自動同期</li>
+        <li>売り越しや在庫ズレの心配なく、複数国で同時に販売できる</li>
+        <li>複数ショップへの同時出品で出品作業を効率化</li>
+        <li>利益率・利益額を可視化し、値付けを最適化</li>
+        <li>有在庫でのShopee多国展開をまとめて運用</li>
+      </ul>
+    </section>
+
+    <!-- ================= HAKONAVI おすすめ ================= -->
+    <section>
+      <h2>こんな方におすすめです</h2>
+      <ul>
+        <li>数十個単位の在庫を持つ商品を、複数取り扱っている方</li>
+        <li>自社倉庫や契約倉庫に、一定数の商品在庫を保有している方</li>
+        <li>同じ商品を複数国・複数ショップで販売している方</li>
+        <li>これからShopeeで有在庫の多国展開を始めたい方</li>
+        <li>国やショップごとの在庫調整を手作業で行っている方</li>
+        <li>売り越しや在庫数のズレに悩んでいる方</li>
+        <li>商品ごとの原価・利益額・利益率を正確に把握したい方</li>
+        <li>国や取扱商品が増え、現在の管理方法に限界を感じている方</li>
+      </ul>
+
+      <p>
+        特に、少量の商品を単発で販売する方よりも、
+        <strong>数十個単位の在庫を持つ商品を複数扱い、継続的に複数国で販売する事業者</strong>に適したシステムです。
+      </p>
+    </section>
+
+    <!-- ===== HAKONAVI ミニお問い合わせCTA ===== -->
+    <section class="micro-cta-section">
+      <div class="micro-cta">
+        <span class="micro-cta-text">
+          HAKONAVIに関するご相談はこちら →
+        </span>
+        <div class="mini-cta-action">
+          <a
+            href="https://forms.gle/Wei9GRR1WXy8iVwd7"
+            target="_blank"
+            rel="noopener"
+            class="mini-cta-button"
+          >
+            導入前の相談をしてみる（無料）
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== HAKONAVI 口コミ（引用カード・ちらっと） ===== -->
+    <section>
+      <h2>利用者の声</h2>
+
+      <p>
+        以下は、導入事例インタビューからの引用です。全文は出典ページよりご確認いただけます。
+        導入事例として公開をご了承いただけたのは現在1社ですが、
+        そのぶん編集で切り取らず、導入前の不安から達成までを一問一答で全文公開しています。
+      </p>
+
+      <div class="reviews-grid">
+
+        <div class="review-card">
+          <div class="quote-mark">&ldquo;</div>
+          <p class="review-body">
+            出品は10分ほどかかっていたのがボタン操作で完結し、作業時間が約1/5に。利益率・利益額も見えるようになり、逆算して値段を再設定できるようになりました。
+          </p>
+          <div class="review-meta">
+            <a class="review-source" href="case-study-a.html" target="_blank" rel="noopener">出典を見る ↗</a>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="quote-mark">&ldquo;</div>
+          <p class="review-body">
+            在庫管理はHAKONAVI上で数値を入れれば、5か国の全ショップに反映され、非常に楽になりました。都度すべて手作業で調整していた頃とは大違いです。
+          </p>
+          <div class="review-meta">
+            <a class="review-source" href="case-study-a.html" target="_blank" rel="noopener">出典を見る ↗</a>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="quote-mark">&ldquo;</div>
+          <p class="review-body">
+            このシステムのおかげで月商3,000万円が達成できました。出品の簡略化でかなり未来が見えたので、次は月商5,000万円を目指していきたいです。
+          </p>
+          <div class="review-meta">
+            <a class="review-source" href="case-study-a.html" target="_blank" rel="noopener">出典を見る ↗</a>
+          </div>
+        </div>
+
+      </div>
+
+      <p class="image-note">
+        ※記載の成果（月商・作業時間等）は特定のお客様の事例であり、同様の効果を保証するものではありません。
+      </p>
+
+      <!-- ===== 導入事例ページ全体への導線 ===== -->
+      <div class="reviews-source-cta">
+        <a
+          class="reviews-source-button"
+          href="case-study-a.html"
+          target="_blank"
+          rel="noopener"
+        >
+          導入事例の全文を読む →
+        </a>
+      </div>
+    </section>
+
+  </div><!-- /panel-hako -->
+
   <!-- お問い合わせセクション -->
 <div class="cta-section">
   <div class="cta-container">
 
-    <h2 class="cta-title">お問い合わせ</h2>
+    <h2 class="cta-title">まずは、気軽に相談してください</h2>
 
     <p class="cta-text">
-      ご不明点やご相談がございましたら、こちらよりお問い合わせください。<br>
-      Shopeeツールの使い方・無在庫出品の不安・導入前の相談など、<br>
+      「自分の規模でも使えるか」「無在庫と有在庫どちらが合うか」といった<br>
+      導入前の壁打ちだけでも歓迎です。<br>
       担当者が内容を確認し、迅速にご連絡いたします。
+    </p>
+
+    <p class="cta-text" style="text-align: left; max-width: 560px; margin-left: auto; margin-right: auto;">
+      <strong>導入までの流れ</strong><br>
+      ① フォームから相談内容を送信（1〜2分）<br>
+      ② 担当者より折り返しご連絡（料金プランを含めてご案内します）<br>
+      ③ ご納得いただけたら利用開始。最低利用期間の縛りはありません
     </p>
 
     <a
@@ -1035,8 +1778,10 @@
       target="_blank"
       rel="noopener"
     >
-      お問い合わせフォームを開く
+      導入前の相談をしてみる（無料）
     </a>
+
+    <p class="cta-note">※ご相談は無料です。導入を無理におすすめすることはありません。</p>
   </div>
 </div>
 <!-- ===== Other Service : AI導入サポート ===== -->
@@ -1087,10 +1832,66 @@
   >
 </div>
 <footer>
-  <a href="https://yourcompany.jp/terms">利用規約</a> |
-  <a href="https://yourcompany.jp/privacy">プライバシーポリシー</a> |
-  <a href="https://yourcompany.jp/tokushoho">特定商取引法に基づく表記</a>
-  <a>© HANABI</a>
+  <p style="margin: 0 0 8px;">運営：株式会社TYSS ｜ お問い合わせは<a href="https://forms.gle/Wei9GRR1WXy8iVwd7" target="_blank" rel="noopener" style="text-decoration: underline;">フォーム</a>よりお願いします</p>
+  <p style="margin: 0;">© 2024-2026 株式会社TYSS（HANABI / HAKONAVI）</p>
 </footer>
+
+<!-- ================= TAB SWITCHER SCRIPT ================= -->
+<script>
+  (function () {
+    var tabs = {
+      hanabi: { tab: document.getElementById('tab-hanabi'), panel: document.getElementById('panel-hanabi') },
+      hako:   { tab: document.getElementById('tab-hako'),   panel: document.getElementById('panel-hako') }
+    };
+
+    function activate(key, updateHash) {
+      if (!tabs[key]) key = 'hanabi';
+      Object.keys(tabs).forEach(function (k) {
+        var isActive = k === key;
+        tabs[k].tab.setAttribute('aria-selected', isActive ? 'true' : 'false');
+        tabs[k].panel.hidden = !isActive;
+      });
+      if (updateHash) {
+        if (history.replaceState) {
+          history.replaceState(null, '', '#' + key);
+        } else {
+          location.hash = key;
+        }
+      }
+      // GA4イベント送信（切り替えの計測用）
+      if (typeof gtag === 'function') {
+        gtag('event', 'tab_switch', { tab_name: key });
+      }
+    }
+
+    Object.keys(tabs).forEach(function (k) {
+      tabs[k].tab.addEventListener('click', function () {
+        activate(k, true);
+        window.scrollTo(0, 0);
+      });
+    });
+
+    // パネル内リンク（data-tab / #hanabi・#hako）からのタブ切り替え
+    document.addEventListener('click', function (e) {
+      var link = e.target.closest ? e.target.closest('[data-tab]') : null;
+      if (!link) return;
+      var key = link.getAttribute('data-tab');
+      if (!tabs[key]) return;
+      e.preventDefault();
+      activate(key, true);
+      window.scrollTo(0, 0);
+    });
+
+    // ブラウザの戻る/進むやハッシュ変更に追従
+    window.addEventListener('hashchange', function () {
+      var key = (location.hash || '').replace('#', '');
+      if (tabs[key]) activate(key, false);
+    });
+
+    // 初期表示：URLハッシュ（#hako 等）があればそのタブを開く
+    var initial = (location.hash || '').replace('#', '');
+    activate(tabs[initial] ? initial : 'hanabi', false);
+  })();
+</script>
 </body>
 </html>

@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>導入事例｜手作業の限界から月商3,000万円へ — Shopee多国展開を支えた在庫・利益管理システム</title>
+<style>
+  :root {
+    --primary: #2b6cb0;
+    --primary-dark: #1a4971;
+    --accent: #ed8936;
+    --text: #2d3748;
+    --text-light: #718096;
+    --bg: #f7fafc;
+    --card: #ffffff;
+    --border: #e2e8f0;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Sans",
+                 "Hiragino Kaku Gothic ProN", "Noto Sans JP", Meiryo, sans-serif;
+    color: var(--text);
+    background: var(--bg);
+    line-height: 1.9;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrapper { max-width: 760px; margin: 0 auto; padding: 0 20px 80px; }
+
+  /* ヒーロー */
+  .hero {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    color: #fff;
+    padding: 64px 20px 56px;
+    text-align: center;
+    position: relative;
+  }
+  /* ハンコ風スタンプ（インタビュー対象） */
+  .stamp {
+    position: absolute;
+    top: 26px;
+    right: 26px;
+    width: 78px;
+    height: 78px;
+    border: 3px solid #ff5a5a;
+    color: #ff5a5a;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    line-height: 1.3;
+    letter-spacing: .04em;
+    transform: rotate(-12deg);
+    box-shadow: inset 0 0 0 2px rgba(255,90,90,.35);
+    background: rgba(255,90,90,.06);
+  }
+  .stamp .pref { font-size: 12px; }
+  .stamp .co   { font-size: 19px; margin-top: 1px; }
+  .hero .badge {
+    display: inline-block;
+    background: var(--accent);
+    border: none;
+    color: #fff;
+    padding: 12px 32px;
+    border-radius: 999px;
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: .14em;
+    margin-bottom: 28px;
+    box-shadow: 0 6px 20px rgba(237,137,54,.4);
+  }
+  .hero .badge .en {
+    display: block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .2em;
+    opacity: .85;
+    margin-top: 2px;
+  }
+  .hero h1 {
+    font-size: 30px;
+    line-height: 1.5;
+    max-width: 720px;
+    margin: 0 auto;
+    font-weight: 700;
+  }
+  .hero .lead {
+    margin-top: 20px;
+    font-size: 16px;
+    opacity: .92;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* KPIハイライト */
+  .kpi-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin: -36px 0 52px;
+    position: relative;
+    z-index: 2;
+  }
+  .kpi { box-shadow: 0 10px 30px rgba(0,0,0,.06); }
+  .kpi {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 26px 16px;
+    text-align: center;
+  }
+  .kpi .num { font-size: 30px; font-weight: 800; color: var(--accent); line-height: 1.1; }
+  .kpi .desc { font-size: 13px; color: var(--text-light); margin-top: 8px; }
+
+  /* 導入前後 */
+  .ba {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 0 0 56px;
+  }
+  .ba .col { border-radius: 14px; padding: 24px; }
+  .ba .before { background: #fff5f5; border: 1px solid #fed7d7; }
+  .ba .after  { background: #f0fff4; border: 1px solid #c6f6d5; }
+  .ba h3 { font-size: 15px; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+  .ba .before h3 { color: #c53030; }
+  .ba .after h3  { color: #276749; }
+  .ba ul { list-style: none; }
+  .ba li { font-size: 14px; padding: 6px 0 6px 22px; position: relative; }
+  .ba .before li::before { content: "×"; position: absolute; left: 0; color: #e53e3e; font-weight: 700; }
+  .ba .after li::before  { content: "○"; position: absolute; left: 0; color: #38a169; font-weight: 700; }
+
+  /* Q&A */
+  .qa { margin-bottom: 34px; }
+  .qa .q {
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--primary-dark);
+    padding-left: 44px;
+    position: relative;
+    margin-bottom: 16px;
+  }
+  .qa .q::before {
+    content: "Q";
+    position: absolute;
+    left: 0; top: -2px;
+    width: 30px; height: 30px;
+    background: var(--primary);
+    color: #fff;
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 15px;
+  }
+  .qa .a {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--accent);
+    border-radius: 0 12px 12px 0;
+    padding: 22px 26px;
+    font-size: 15.5px;
+    line-height: 2.05;
+  }
+  .qa .a p { margin: 0; }
+  .qa .a strong { color: var(--primary-dark); font-weight: 700; }
+  .qa .a .speaker {
+    font-size: 12px;
+    color: var(--text-light);
+    display: block;
+    margin-bottom: 12px;
+    line-height: 1.4;
+  }
+  /* 段落の区切りは1行分の余白で統一 */
+  .qa .a .gap { display: block; height: 1em; }
+
+  /* セクション見出し */
+  .section-title {
+    font-size: 14px;
+    color: var(--text-light);
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    text-align: center;
+    margin: 56px 0 24px;
+    position: relative;
+  }
+  .section-title::before, .section-title::after {
+    content: ""; height: 1px; width: 40px; background: var(--border);
+    display: inline-block; vertical-align: middle; margin: 0 12px;
+  }
+
+  /* 締めのCTA */
+  .cta {
+    margin-top: 64px;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    color: #fff;
+    border-radius: 18px;
+    padding: 44px 32px;
+    text-align: center;
+  }
+  .cta h2 { font-size: 22px; margin-bottom: 12px; }
+  .cta p { opacity: .92; font-size: 15px; max-width: 520px; margin: 0 auto 24px; }
+  .cta a {
+    display: inline-block;
+    background: #fff;
+    color: var(--primary-dark);
+    text-decoration: none;
+    font-weight: 700;
+    padding: 14px 38px;
+    border-radius: 999px;
+    transition: transform .15s ease;
+  }
+  .cta a:hover { transform: translateY(-2px); }
+
+  .note {
+    font-size: 12px;
+    color: var(--text-light);
+    text-align: center;
+    margin-top: 40px;
+    line-height: 1.7;
+  }
+
+  @media (max-width: 640px) {
+    .hero h1 { font-size: 23px; }
+    .kpi-row { grid-template-columns: 1fr; margin-top: -24px; }
+    .ba { grid-template-columns: 1fr; }
+    .stamp { width: 62px; height: 62px; top: 16px; right: 16px; }
+    .stamp .pref { font-size: 10px; }
+    .stamp .co { font-size: 15px; }
+  }
+</style>
+</head>
+<body>
+
+  <header class="hero">
+    <span class="stamp"><span class="pref">大阪府</span><span class="co">A社</span></span>
+    <span class="badge">導入インタビュー<span class="en">CUSTOMER INTERVIEW</span></span>
+    <h1>手作業の限界から月商3,000万円へ。<br>多国展開を支えたHAKONAVI</h1>
+    <p class="lead">5か国・100%有在庫で運用するセラーが語る、<br>「出品・利益計算・在庫管理」が変わった瞬間。</p>
+  </header>
+
+  <div class="wrapper">
+
+    <!-- KPI -->
+    <div class="kpi-row">
+      <div class="kpi">
+        <div class="num">約1/5</div>
+        <div class="desc">出品作業時間を削減</div>
+      </div>
+      <div class="kpi">
+        <div class="num">5か国</div>
+        <div class="desc">全ショップの在庫を同期</div>
+      </div>
+      <div class="kpi">
+        <div class="num">3,000万円</div>
+        <div class="desc">導入前の目標月商を達成<br>（次は5,000万円へ）</div>
+      </div>
+    </div>
+
+    <!-- 導入前後 -->
+    <div class="ba">
+      <div class="col before">
+        <h3>導入前の課題</h3>
+        <ul>
+          <li>すべて手作業。梱包数の増加で限界に</li>
+          <li>5か国の全ショップの在庫を都度手入力で調整</li>
+          <li>利益は「ざっくり」でしか把握できず</li>
+          <li>出品に1商品あたり約10分</li>
+        </ul>
+      </div>
+      <div class="col after">
+        <h3>導入後の変化</h3>
+        <ul>
+          <li>出品はボタン操作で完結、時間1/5に</li>
+          <li>数値入力で5か国の全ショップに自動反映</li>
+          <li>利益率・利益額が可視化、値付けを最適化</li>
+          <li>未来が見え、次の目標へ前進</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-title">Interview</div>
+
+    <!-- Q&A -->
+    <div class="qa">
+      <div class="q">取り扱い商品について教えてください</div>
+      <div class="a">
+        <span class="speaker">— A社 担当者</span>
+        <p>今は<strong>日用品・化粧品</strong>が主軸ですね。</p>
+      </div>
+    </div>
+
+    <div class="qa">
+      <div class="q">システムを構築しようと思ったきっかけは？</div>
+      <div class="a">
+        <span class="speaker">— A社 担当者</span>
+        <p>当時は本当にすべて手作業で、<br>
+        「システムにどう頼ったらいいのか」自体が、<br>
+        分かっていない状況でした。<span class="gap"></span>
+        一度、別のシステム会社さんにお願いしたことがあるんです。<br>
+        ただ、その方が<strong>Shopeeを知らない方</strong>だったので、<br>
+        作っていく中で認識のズレがたくさん出てきて、<br>
+        一度頓挫してしまった経験があって。<span class="gap"></span>
+        断念しようかとも思ったのですが、<br>
+        <strong>梱包数が増えて手作業の限界</strong>を感じていたので、<br>
+        改めてお願いすることにしました。</p>
+      </div>
+    </div>
+
+    <div class="qa">
+      <div class="q">その時、不安はありましたか？</div>
+      <div class="a">
+        <span class="speaker">— A社 担当者</span>
+        <p>ありました。<br>
+        私自身システム作りが初めてだったので、<br>
+        「また認識違いが出たらどうしよう」という、<br>
+        ちょっとトラウマ的なところはありましたね。</p>
+      </div>
+    </div>
+
+    <div class="qa">
+      <div class="q">導入前、在庫管理はどうされていましたか？</div>
+      <div class="a">
+        <span class="speaker">— A社 担当者</span>
+        <p>うちは<strong>100%有在庫</strong>で運用していて、<br>
+        当時で<strong>5か国（フィリピン・シンガポール・台湾・ベトナム・マレーシア）</strong>に、<br>
+        展開していました。<span class="gap"></span>
+        在庫管理はその都度すべて手作業で。<br>
+        たとえば「残り3個」の商品は、<br>
+        フィリピンにだけ在庫を入れて他はゼロにする、<br>
+        といった調整をしていて、その作業がすごく手間でした。</p>
+      </div>
+    </div>
+
+    <div class="qa">
+      <div class="q">利益計算はどうされていましたか？</div>
+      <div class="a">
+        <span class="speaker">— A社 担当者</span>
+        <p>売上はセラーセントラルから見られるのですが、<br>
+        <strong>利益計算はShopee上で一括管理ができない</strong>仕組みで。<span class="gap"></span>
+        どうしても「ざっくり」とした計算になり、<br>
+        商品一個一個の最終利益から、<br>
+        「だいたいこれぐらい」という感覚での運用でした。<br>
+        そこは不安材料でしたね。</p>
+      </div>
+    </div>
+
+    <div class="qa">
+      <div class="q">制作のやり取りはいかがでしたか？</div>
+      <div class="a">
+        <span class="speaker">— A社 担当者</span>
+        <p>最初に「別の会社さんに頼んで失敗した」経験も、<br>
+        共有していたので、<br>
+        その不安を取り除きながら進めてくださって。<span class="gap"></span>
+        しかも<strong>Shopeeに非常に詳しい方</strong>だったので、<br>
+        私が言う前に「こうやったらいいですよ」と、<br>
+        先回りして構築してくださいました。<br>
+        とてもやり取りしやすかったです。</p>
+      </div>
+    </div>
+
+    <div class="qa">
+      <div class="q">導入してみて、どう変わりましたか？</div>
+      <div class="a">
+        <span class="speaker">— A社 担当者</span>
+        <p>今回は<strong>①商品出品の簡略化／②利益計算の可視化／③在庫管理</strong>、<br>
+        この3つを解決したくて相談しました。<span class="gap"></span>
+        <strong>出品</strong>は、10分ほどかかっていたのがボタン操作で完結し、<br>
+        作業時間が約1/5に。<span class="gap"></span>
+        <strong>利益計算</strong>は利益率・利益額が見えるようになり、<br>
+        逆算して値段を再設定できるように。<span class="gap"></span>
+        <strong>在庫管理</strong>はHAKONAVI上で数値を入れれば、<br>
+        5か国の全ショップに反映され、非常に楽になりました。</p>
+      </div>
+    </div>
+
+    <div class="qa">
+      <div class="q">特に良かったのはどこですか？</div>
+      <div class="a">
+        <span class="speaker">— A社 担当者</span>
+        <p>この3つ、全部本当にめちゃくちゃ良かったです。</p>
+      </div>
+    </div>
+
+    <div class="qa">
+      <div class="q">今後、実現していきたいことは？</div>
+      <div class="a">
+        <span class="speaker">— A社 担当者</span>
+        <p>「システムを活用するとこんなに楽になるのか」と分かったので、<br>
+        次にやりたいことが見えてきました。<span class="gap"></span>
+        <strong>日商管理</strong>は、今は毎朝各国のセラーセントラルを開いて、<br>
+        数字をExcelに転記しているので、<br>
+        ダッシュボードでパッと見られたら本当に楽だなと。<span class="gap"></span>
+        あわせて<strong>無在庫との併用</strong>や、<br>
+        <strong>倉庫（実在庫）の管理</strong>も相談していきたいです。</p>
+      </div>
+    </div>
+
+    <div class="qa">
+      <div class="q">今後の目標を教えてください</div>
+      <div class="a">
+        <span class="speaker">— A社 担当者</span>
+        <p>このシステムのおかげで、<br>
+        <strong>月商3,000万円</strong>が達成できました。<span class="gap"></span>
+        出品の簡略化でかなり未来が見えたので、<br>
+        <strong>次は月商5,000万円</strong>を目指していきたいです。</p>
+      </div>
+    </div>
+
+    <div class="qa">
+      <div class="q">このシステムはどんな方に向いていますか？</div>
+      <div class="a">
+        <span class="speaker">— A社 担当者</span>
+        <p><strong>初心者の方でも出品自体が簡単</strong>なので、<br>
+        Shopeeでゼロから始めるよりも、<br>
+        最初からツールを導入して、<br>
+        すべての国に一気に展開するのがおすすめです。<span class="gap"></span>
+        逆に、どんな方でも使いやすいと思います。</p>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta">
+      <h2>Shopeeの多国展開を、もっとシンプルに。</h2>
+      <p>本事例で使われているのは、Shopee有在庫販売の在庫・利益管理システム<strong>「HAKONAVI」</strong>です。<br>
+      「A社のような運用ができるか聞いてみたい」程度のご相談で構いません。<br>
+      現在の販売国数・在庫規模をお書き添えいただくとご案内がスムーズです。</p>
+      <a href="https://forms.gle/Wei9GRR1WXy8iVwd7" target="_blank" rel="noopener">導入前の相談をしてみる（無料）</a>
+      <p style="margin-top: 16px; margin-bottom: 0;">
+        <a href="index.html#hako" style="background: transparent; color: #fff; border: 2px solid rgba(255,255,255,.7); padding: 12px 34px;">HAKONAVIの機能を見る →</a>
+      </p>
+    </div>
+
+    <p class="note">
+      ※本事例はご本人の希望により、社名・個人名を伏せて掲載しています。<br>
+      ※掲載内容はインタビュー時点(2026/6)のものです。<br>
+      ※記載の成果（月商・作業時間等）は特定のお客様の事例であり、同様の成果を保証するものではありません。
+    </p>
+
+  </div>
+
+</body>
+</html>
