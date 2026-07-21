@@ -129,11 +129,29 @@
   }
 
   ul {
-    margin: 20px 0 20px 28px;
+    margin: 20px 0;
+    padding-left: 1.2em;
   }
 
   li {
     margin-bottom: 12px;
+  }
+
+  /* チェックリスト（記号は✔のみ。標準の•は出さない） */
+  ul.checklist {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  ul.checklist li {
+    position: relative;
+    padding-left: 1.5em;
+  }
+
+  ul.checklist li::before {
+    content: "✔";
+    position: absolute;
+    left: 0;
   }
 
   strong {
@@ -313,7 +331,7 @@
   }
 
   .plan-card ul {
-    margin: 14px 0 0 22px;
+    margin: 14px 0 0;
   }
 
   .plan-card li {
@@ -810,11 +828,11 @@
       HANABIは、そんな悩みを抱えるセラーのために作られた<strong>実務特化型のShopee出品ツール</strong>です。
     </p>
 
-    <ul>
-      <li>✔ <strong>Shopee公式の認定</strong>をうけたツール</li>
-      <li>✔ 台湾・タイ・ブラジルなど各国のShopeeに<strong>外国語がわからなくても</strong>出品可能</li>
-      <li>✔ 公開から約1年で<strong>Shopee Japan様とのコラボキャンペーン</strong>を実施</li>
-      <li>✔ 公開から<strong>ほぼ毎月のアップデート</strong>を継続中（履歴はページ下部に一部掲載）</li>
+    <ul class="checklist">
+      <li><strong>Shopee公式の認定</strong>をうけたツール</li>
+      <li>台湾・タイ・ブラジルなど各国のShopeeに<strong>外国語がわからなくても</strong>出品可能</li>
+      <li>公開から約1年で<strong>Shopee Japan様とのコラボキャンペーン</strong>を実施</li>
+      <li>公開から<strong>ほぼ毎月のアップデート</strong>を継続中（履歴はページ下部に一部掲載）</li>
     </ul>
 
     <div class="reviews-source-cta">
