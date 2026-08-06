@@ -1,10 +1,6 @@
-# hanabi.marketvalleys.com
-# すべてのクローラーにサイト全体のクロールを許可します。
-
 User-agent: *
 Allow: /
 
-# AI検索・LLMクローラーにも明示的にクロールを許可（LLMO対策）
 User-agent: GPTBot
 Allow: /
 
