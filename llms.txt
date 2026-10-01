@@ -24,9 +24,10 @@
 
 - [トップページ（HANABI / HAKONAVIの紹介）](https://hanabi.marketvalleys.com/): 機能・料金・FAQ・アップデート履歴
 - [導入事例インタビュー](https://hanabi.marketvalleys.com/case-study-a.html): HAKONAVI導入で月商3,000万円を達成したセラーの一問一答
+- [お客様実績インタビュー（AI導入支援）](https://hanabi.marketvalleys.com/case-study-acd.html): クラファンLP制作「A.C.D」の小川さんが、酒蔵向けの集客の仕組み（無料診断→AIレポート→LINE→無料相談）を相談の翌日に試作、約1週間で本番化した対談
 
 ## 運営
 
 - 運営会社: 株式会社TYSS（日本）
 - お問い合わせ: https://forms.gle/Wei9GRR1WXy8iVwd7 （無料相談・見積もりのみも可）
-- Shopeeツール「HANABI」の開発・運営とは別に、AI導入のゼロイチ支援（Claude Code等を活用）も提供
+- Shopeeツール「HANABI」の開発・運営とは別に、AI導入のゼロイチ支援（Claude Code等を活用）も提供。トップページの「AI導入支援」タブ（#ai）で紹介

@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>お客様実績｜相談した翌日から、半年止まった構想が動いた — A.C.D 小川さんインタビュー（AI導入支援）</title>
+
+<meta name="description" content="AI導入支援のお客様実績。クラウドファンディング専門のLP制作「A.C.D」の小川さんに、酒蔵向けの集客の仕組み（無料ブランド診断→AIレポート→LINE→無料相談）をAIで形にするまでを、対談動画と一問一答でうかがいました。">
+<meta name="robots" content="index, follow">
+<meta name="author" content="株式会社TYSS">
+<link rel="canonical" href="https://hanabi.marketvalleys.com/case-study-acd.html">
+
+<meta property="og:title" content="お客様実績｜相談した翌日から、半年止まった構想が動いた — A.C.D 小川さんインタビュー">
+<meta property="og:description" content="半年止まっていた集客の仕組みが、相談の翌日に試作品、約1週間で本番に。AI導入支援のお客様対談を全文公開。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://hanabi.marketvalleys.com/case-study-acd.html">
+<meta property="og:image" content="https://hanabi.marketvalleys.com/images/case-acd-thumb.jpg">
+<meta property="og:site_name" content="Shopeeツール HANABI / HAKONAVI">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<style>
+  :root {
+    --primary: #2b6cb0;
+    --primary-dark: #1a4971;
+    --accent: #ed8936;
+    --text: #2d3748;
+    --text-light: #718096;
+    --bg: #f7fafc;
+    --card: #ffffff;
+    --border: #e2e8f0;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Sans",
+                 "Hiragino Kaku Gothic ProN", "Noto Sans JP", Meiryo, sans-serif;
+    color: var(--text);
+    background: var(--bg);
+    line-height: 1.9;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrapper { max-width: 760px; margin: 0 auto; padding: 0 20px 80px; }
+
+  /* ヒーロー */
+  .hero {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    color: #fff;
+    padding: 64px 20px 56px;
+    text-align: center;
+    position: relative;
+  }
+  /* ハンコ風スタンプ（インタビュー対象） */
+  .stamp {
+    position: absolute;
+    top: 26px;
+    right: 26px;
+    width: 78px;
+    height: 78px;
+    border: 3px solid #ff5a5a;
+    color: #ff5a5a;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    line-height: 1.3;
+    letter-spacing: .04em;
+    transform: rotate(-12deg);
+    box-shadow: inset 0 0 0 2px rgba(255,90,90,.35);
+    background: rgba(255,90,90,.06);
+  }
+  .stamp .pref { font-size: 12px; }
+  .stamp .co   { font-size: 17px; margin-top: 1px; }
+  .hero .badge {
+    display: inline-block;
+    background: var(--accent);
+    border: none;
+    color: #fff;
+    padding: 12px 32px;
+    border-radius: 999px;
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: .14em;
+    margin-bottom: 28px;
+    box-shadow: 0 6px 20px rgba(237,137,54,.4);
+  }
+  .hero .badge .en {
+    display: block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .2em;
+    opacity: .85;
+    margin-top: 2px;
+  }
+  .hero h1 {
+    font-size: 30px;
+    line-height: 1.5;
+    max-width: 720px;
+    margin: 0 auto;
+    font-weight: 700;
+  }
+  .hero .lead {
+    margin-top: 20px;
+    font-size: 16px;
+    opacity: .92;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .hero .person {
+    margin-top: 18px;
+    font-size: 14px;
+    opacity: .85;
+  }
+
+  /* KPIハイライト */
+  .kpi-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin: -36px 0 52px;
+    position: relative;
+    z-index: 2;
+  }
+  .kpi {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 26px 16px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,.06);
+  }
+  .kpi .num { font-size: 30px; font-weight: 800; color: var(--accent); line-height: 1.1; }
+  .kpi .desc { font-size: 13px; color: var(--text-light); margin-top: 8px; }
+
+  /* 依頼前後 */
+  .ba {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 0 0 56px;
+  }
+  .ba .col { border-radius: 14px; padding: 24px; }
+  .ba .before { background: #fff5f5; border: 1px solid #fed7d7; }
+  .ba .after  { background: #f0fff4; border: 1px solid #c6f6d5; }
+  .ba h3 { font-size: 15px; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+  .ba .before h3 { color: #c53030; }
+  .ba .after h3  { color: #276749; }
+  .ba ul { list-style: none; }
+  .ba li { font-size: 14px; padding: 6px 0 6px 22px; position: relative; }
+  .ba .before li::before { content: "×"; position: absolute; left: 0; color: #e53e3e; font-weight: 700; }
+  .ba .after li::before  { content: "○"; position: absolute; left: 0; color: #38a169; font-weight: 700; }
+
+  /* 対談動画 */
+  .video {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    border-radius: 14px;
+    overflow: hidden;
+    background: #000;
+    box-shadow: 0 10px 30px rgba(0,0,0,.12);
+  }
+  .video img, .video iframe {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    border: 0;
+    object-fit: cover;
+  }
+  .soon {
+    margin-top: 12px;
+    text-align: center;
+    font-size: 13px;
+    color: var(--text-light);
+  }
+  .chapters {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px 20px;
+    margin: 18px 0 0;
+    padding: 18px 22px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    list-style: none;
+    font-size: 14px;
+  }
+  .chapters button, .qa .play {
+    font: inherit;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--primary);
+    text-align: left;
+    padding: 0;
+  }
+  .chapters .t { font-variant-numeric: tabular-nums; color: var(--text-light); margin-right: 8px; }
+  .chapters button:hover .label { text-decoration: underline; }
+
+  /* Q&A */
+  .qa { margin-bottom: 34px; }
+  .qa .q {
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--primary-dark);
+    padding-left: 44px;
+    position: relative;
+    margin-bottom: 16px;
+  }
+  .qa .q::before {
+    content: "Q";
+    position: absolute;
+    left: 0; top: -2px;
+    width: 30px; height: 30px;
+    background: var(--primary);
+    color: #fff;
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 15px;
+  }
+  .qa .a {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--accent);
+    border-radius: 0 12px 12px 0;
+    padding: 22px 26px;
+    font-size: 15.5px;
+    line-height: 2.05;
+  }
+  .qa .a p { margin: 0; }
+  .qa .a strong { color: var(--primary-dark); font-weight: 700; }
+  .qa .a .speaker {
+    font-size: 12px;
+    color: var(--text-light);
+    display: block;
+    margin-bottom: 12px;
+    line-height: 1.4;
+  }
+  /* 段落の区切りは1行分の余白で統一 */
+  .qa .a .gap { display: block; height: 1em; }
+  .qa .play {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 13px;
+    font-weight: 700;
+  }
+  .qa .play:hover { text-decoration: underline; }
+
+  /* セクション見出し */
+  .section-title {
+    font-size: 14px;
+    color: var(--text-light);
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    text-align: center;
+    margin: 56px 0 24px;
+    position: relative;
+  }
+  .section-title::before, .section-title::after {
+    content: ""; height: 1px; width: 40px; background: var(--border);
+    display: inline-block; vertical-align: middle; margin: 0 12px;
+  }
+
+  /* お話を伺った会社 */
+  .guest {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 26px 28px;
+    font-size: 15px;
+  }
+  .guest h3 { font-size: 17px; color: var(--primary-dark); margin-bottom: 8px; }
+  .guest ul { list-style: none; margin-top: 12px; }
+  .guest li { padding: 4px 0; }
+  .guest a { color: var(--primary); font-weight: 700; }
+
+  /* 締めのCTA */
+  .cta {
+    margin-top: 64px;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    color: #fff;
+    border-radius: 18px;
+    padding: 44px 32px;
+    text-align: center;
+  }
+  .cta h2 { font-size: 22px; margin-bottom: 12px; }
+  .cta p { opacity: .92; font-size: 15px; max-width: 520px; margin: 0 auto 24px; }
+  .cta a {
+    display: inline-block;
+    background: #fff;
+    color: var(--primary-dark);
+    text-decoration: none;
+    font-weight: 700;
+    padding: 14px 38px;
+    border-radius: 999px;
+    transition: transform .15s ease;
+  }
+  .cta a:hover { transform: translateY(-2px); }
+
+  .note {
+    font-size: 12px;
+    color: var(--text-light);
+    text-align: center;
+    margin-top: 40px;
+    line-height: 1.7;
+  }
+
+  @media (max-width: 640px) {
+    .hero h1 { font-size: 23px; }
+    .kpi-row { grid-template-columns: 1fr; margin-top: -24px; }
+    .ba { grid-template-columns: 1fr; }
+    .chapters { grid-template-columns: 1fr; }
+    .stamp { width: 62px; height: 62px; top: 16px; right: 16px; }
+    .stamp .pref { font-size: 10px; }
+    .stamp .co { font-size: 14px; }
+    .qa .a { padding: 20px 20px; }
+  }
+</style>
+</head>
+<body>
+
+  <header class="hero">
+    <span class="stamp"><span class="pref">A.C.D</span><span class="co">小川様</span></span>
+    <span class="badge">お客様実績インタビュー<span class="en">CUSTOMER INTERVIEW</span></span>
+    <h1>相談した翌日から、<br>半年止まった構想が動いた。</h1>
+    <p class="lead">クラウドファンディング専門のLP制作「A.C.D」が、<br>酒蔵向けの集客の仕組みをAIで形にするまで。</p>
+    <p class="person">合同会社アウトフィールド 代表　小川 徹さん</p>
+  </header>
+
+  <div class="wrapper">
+
+    <!-- KPI（いずれも対談でのご本人の発言） -->
+    <div class="kpi-row">
+      <div class="kpi">
+        <div class="num">翌日</div>
+        <div class="desc">相談から試作品が届くまで<br>（構想は半年近く停滞）</div>
+      </div>
+      <div class="kpi">
+        <div class="num">約1週間</div>
+        <div class="desc">診断の中身まで作り込んだ<br>本番版の完成まで</div>
+      </div>
+      <div class="kpi">
+        <div class="num">月数百円</div>
+        <div class="desc">仕組みのランニングコスト<br>（自作案では月数万円を覚悟）</div>
+      </div>
+    </div>
+
+    <!-- 依頼前後 -->
+    <div class="ba">
+      <div class="col before">
+        <h3>ご依頼前の課題</h3>
+        <ul>
+          <li>無料相談の約半分が、クラファンを知らない状態での参加</li>
+          <li>相談1件に2時間前後。半分以上が基礎説明</li>
+          <li>7〜8個のツールをつなぐ自作に挑戦し、途中で挫折</li>
+          <li>構想から半年近く、一歩も進まなかった</li>
+        </ul>
+      </div>
+      <div class="col after">
+        <h3>ご依頼後の変化</h3>
+        <ul>
+          <li>相談の翌日に試作品、約1週間で本番版</li>
+          <li>入口が「口で説明」から「URL 1本」に</li>
+          <li>採点・レポート・LINE送付・振り分けまで自動</li>
+          <li>診断の質問や文言を自分で直せる</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 対談動画 -->
+    <div class="section-title" id="video">Movie</div>
+
+    <div class="video" id="video-box">
+      <img src="images/case-acd-thumb.webp" alt="成果対談 A.C.D 小川さん × ぱんだ のサムネイル" width="1280" height="720">
+    </div>
+    <p class="soon" id="video-soon">対談動画（約41分）は近日公開予定です。</p>
+
+    <ol class="chapters">
+      <li><button type="button" data-start="0"><span class="t">00:00</span><span class="label">オープニング</span></button></li>
+      <li><button type="button" data-start="43"><span class="t">00:43</span><span class="label">自己紹介</span></button></li>
+      <li><button type="button" data-start="190"><span class="t">03:10</span><span class="label">ご依頼いただいたきっかけ</span></button></li>
+      <li><button type="button" data-start="541"><span class="t">09:01</span><span class="label">ご依頼前の状況</span></button></li>
+      <li><button type="button" data-start="697"><span class="t">11:37</span><span class="label">進行中のやり取りについて</span></button></li>
+      <li><button type="button" data-start="1114"><span class="t">18:34</span><span class="label">ご依頼後の変化</span></button></li>
+      <li><button type="button" data-start="1372"><span class="t">22:52</span><span class="label">一番大きく変わったこと</span></button></li>
+      <li><button type="button" data-start="1566"><span class="t">26:06</span><span class="label">良かった点</span></button></li>
+      <li><button type="button" data-start="1784"><span class="t">29:44</span><span class="label">今後について</span></button></li>
+      <li><button type="button" data-start="2154"><span class="t">35:54</span><span class="label">おすすめしたい人</span></button></li>
+      <li><button type="button" data-start="2342"><span class="t">39:02</span><span class="label">商品・サービスのご紹介</span></button></li>
+    </ol>
+
+    <div class="section-title">Interview</div>
+
+    <!-- Q&A -->
+    <div class="qa">
+      <div class="q">小川さんの事業について教えてください</div>
+      <div class="a">
+        <span class="speaker">— 合同会社アウトフィールド 代表　小川 徹さん（A.C.D）</span>
+        <p>クラウドファンディング専門のLP制作サービス「A.C.D」をやっています。構成・デザイン・コピーライティング・撮影・サイト登録までワンストップで、お客さまの8割は初めてクラファンに挑戦する方です。<span class="gap"></span>
+        お客さまは個人の方から中小メーカーさんまで、<strong>良いものを作っているのに、なかなかお客さんに届けられない</strong>という方が多いですね。<span class="gap"></span>
+        最近、<strong>酒蔵に絞った支援</strong>を始めました。日本酒は物語も品質もあるのに、オンラインでの発信や販売に制約が多い。ここに本気で入ろうと決めたのが、今回の相談のきっかけです。</p>
+        <button type="button" class="play" data-start="43">▶ 動画で見る（00:43〜）</button>
+      </div>
+    </div>
+
+    <div class="qa">
+      <div class="q">AIを使った集客の仕組みを相談したきっかけは？</div>
+      <div class="a">
+        <span class="speaker">— 小川さん</span>
+        <p>頭の中には前から構想があったんです。広告で酒蔵の経営者さんを集めて、無料のブランド診断を受けてもらい、AIが診断レポートを返して、LINEで少しずつクラファンのことを知ってもらう。本気度の高い方だけ無料相談に来てもらう。<span class="gap"></span>
+        この流れが作れれば、<strong>営業の前の工程が全部自動になる</strong>。ただ、実際に形にするのは非常に難しくて、<strong>構想を始めて半年近く、一歩も進んでいなかった</strong>。それが一番のきっかけです。</p>
+        <button type="button" class="play" data-start="190">▶ 動画で見る（03:10〜）</button>
+      </div>
+    </div>
+
+    <div class="qa">
+      <div class="q">ご依頼前は、どんなことに困っていましたか？</div>
+      <div class="a">
+        <span class="speaker">— 小川さん</span>
+        <p>無料相談やセミナーに、クラファンを知らない状態で来られる方がほとんどで、<strong>相談時間のほとんどが「クラファンとは何か」で終わってしまう</strong>。準備も実施もこちらのコストが先に出て、成約しなければ全部持ち出しです。体感では相談者の半分くらいがそういう状態でした。<span class="gap"></span>
+        かといって相談を有料にすると、入口で人が来なくなる。<strong>相談の前に知ってもらって、本気の方を見極める仕組み</strong>が絶対に必要だと分かっていたのに、作れていませんでした。</p>
+      </div>
+    </div>
+
+    <div class="qa">
+      <div class="q">ご自身で試したことはありましたか？</div>
+      <div class="a">
+        <span class="speaker">— 小川さん</span>
+        <p>AIに相談して、ツールを自動でつなぐ「Make」を使えば自分でも作れると言われて、やってみました。Googleフォームで診断を作って、Makeで回答をAIに渡して、レポートを作ってLINEに送る。<span class="gap"></span>
+        でも、つなぐ相手が多くて、どこかを直すと別のところが破綻する。途中で止まってしまい、最後は<strong>「これは自分の仕事じゃない」</strong>と。Googleフォームだと重いアンケートになるし、自社のページらしい見た目にもならなかった。</p>
+      </div>
+    </div>
+
+    <div class="qa">
+      <div class="q">依頼の決め手は何でしたか？</div>
+      <div class="a">
+        <span class="speaker">— 小川さん</span>
+        <p>最初に相談した日に概要だけお伝えしたら、<strong>次の日の夜には、もう動くものが出てきた</strong>んです。診断を受けて、AIの結果が出て、LINE登録の案内まで来る試作品です。<span class="gap"></span>
+        開発会社に普通に頼めば、要件の定義で1か月、見積もりで1週間という世界だと思っていたので、「ぱんださんはだいぶ違うな」と。そこで迷いが消えました。</p>
+      </div>
+    </div>
+
+    <div class="qa">
+      <div class="q">不安はありましたか？</div>
+      <div class="a">
+        <span class="speaker">— 小川さん</span>
+        <p>技術に疎いので、<strong>納品された後に自分で触れなくなるのでは</strong>、というのが一番の不安でした。それは、診断の質問や文言を自分で直せる形に組んでもらえたことで解消しました。<span class="gap"></span>
+        費用面でも、月額の固定費がほとんどかからない形にしてもらえたので、広告費以外のランニングが膨らむ不安もなくなりました。</p>
+      </div>
+    </div>
+
+    <div class="qa">
+      <div class="q">ご依頼前、構想はどんな状態でしたか？</div>
+      <div class="a">
+        <span class="speaker">— 小川さん</span>
+        <p>流れの図と、診断の質問表と、依頼概要までは手元にありました。ただ、自分で考えていたやり方は<strong>ツールを7つ8つ連携させる</strong>もので、どれか1つが止まったら全部止まる。仮に動いても運用できないな、とうすうす感じていました。<span class="gap"></span>
+        一人で夜な夜な調べて、試して、止まって、の繰り返しで、<strong>トータル数十時間</strong>。それでも診断の答えをAIに渡す手前で止まっていました。<span class="gap"></span>
+        無料相談は1件あたり準備と本番で2時間前後。その半分以上がクラファンの基本説明で、本来の「この商品ならこう売る」という提案にたどり着けていませんでした。</p>
+        <button type="button" class="play" data-start="541">▶ 動画で見る（09:01〜）</button>
+      </div>
+    </div>
+
+    <div class="qa">
+      <div class="q">相談から構築まで、やり取りはいかがでしたか？</div>
+      <div class="a">
+        <span class="speaker">— 小川さん</span>
+        <p><strong>会話のスピードで形になっていく</strong>感じでした。相談の次の日の夜に試作品、その数日後には本番で使える状態で、LINEともつながっていた。「本気度の高い人を見分けたい」「質問は自分で直したい」と言ったことも、もう入っていました。<strong>最初の相談から2〜3日で、私が半年描いていた流れが一通りできあがっていた</strong>という感じです。<span class="gap"></span>
+        私は7つ8つのツールをつなぐ前提で話していたんですが、ぱんださんは「それ、全部ひとつにできますよ」と。月々の固定費はほぼかからず、AIの費用も診断1件数円。<strong>「つなぐ」発想から「ひとつの箱に入れる」発想に変わった瞬間</strong>に、頭の中のモヤモヤが一気に晴れました。</p>
+        <button type="button" class="play" data-start="697">▶ 動画で見る（11:37〜）</button>
+      </div>
+    </div>
+
+    <div class="qa">
+      <div class="q">動くものを見ながら決める進め方はどうでしたか？</div>
+      <div class="a">
+        <span class="speaker">— 小川さん</span>
+        <p>これが一番よかったですね。仕様書を読んでイメージするのではなく、実際にURLを開いて、自分で診断を受けて、ユーザー目線ですぐにチェックできる。<span class="gap"></span>
+        「酒蔵の人にはこの言葉は通じない」とお願いしたことも、その日のうちに直っていました。打ち合わせで「ページは悩みから入ったほうがいい」と話したら、その日のうちに「こんなお悩みはありませんか？」から始まるページに組み替わっていました。<span class="gap"></span>
+        スピードは<strong>想像の10倍</strong>くらい。来週打ち合わせしましょうと言ったら、来週にはもう次のバージョンができている。こっちが追いつくのが大変なくらいでした。</p>
+      </div>
+    </div>
+
+    <div class="qa">
+      <div class="q">自分では思いつかなかった工夫はありましたか？</div>
+      <div class="a">
+        <span class="speaker">— 小川さん</span>
+        <p>大きく3つあります。<span class="gap"></span>
+        1つ目は、<strong>診断を受けた人を待たせない設計</strong>。AIの分析には少し時間がかかるので、先に点数だけ見せて、詳しいレポートは後からLINEで届く形にしてくれた。私はAIが終わるまで待ってもらうことしか考えていませんでした。<span class="gap"></span>
+        2つ目は、<strong>本気度で振り分けてくれる</strong>こと。回答から「今挑戦できる」「準備が整えば」「土台づくりから」を判定して、本気度の高い方だけ相談に誘導できる。冷やかし対策そのものでした。<span class="gap"></span>
+        3つ目は、<strong>診断の中身をクラファンの勝ち筋から作り直してくれた</strong>こと。私が用意した質問表を、クラファンサイトが公開している統計や酒蔵クラファンの成功事例のリサーチをもとに、行動と数字で答える質問に全部作り直してくれた。診断そのものが、うちのノウハウの一部になっています。</p>
+      </div>
+    </div>
+
+    <div class="qa">
+      <div class="q">他の開発会社やツールと比べて違う点は？</div>
+      <div class="a">
+        <span class="speaker">— 小川さん</span>
+        <p><strong>相談する相手と作る人が同じ</strong>ことです。開発会社だと担当や役目が分かれていて、人と人との間で情報が薄まる。それがないから早いし、詰まりもない。<span class="gap"></span>
+        それと、診断の回答は酒蔵さんの大事な情報なので、<strong>うちの手元にだけ残る形</strong>にしてくれた。そういう気遣いを最初から入れてくれたのは、なかなかないことだと思います。</p>
+      </div>
+    </div>
+
+    <div class="qa">
+      <div class="q">仕組みが動き始めて、何が変わりましたか？</div>
+      <div class="a">
+        <span class="speaker">— 小川さん</span>
+        <p>頭の中の絵が、まさに<strong>URL 1本</strong>になりました。これまでは「酒蔵向けにこういう支援をやりたいんです」と口で説明していたのが、「この診断を受けてみてください」と言える形になった。入口が言葉からURLに変わったのは、想像以上に大きかったです。<span class="gap"></span>
+        診断の採点、レポート作り、LINEでのメッセージ送付、その後のお知らせ、本気度の振り分け、LINEでの簡単な質問への回答まで、人の手を介さずに回ります。<strong>私が動くのは、本気度の高い方から相談の依頼が来たときだけ</strong>です。<span class="gap"></span>
+        質問や文言ももう何回か自分で直しています。外注さんに修正を頼むと1週間待ちでしたが、それがない。一番ありがたかったところです。</p>
+        <button type="button" class="play" data-start="1114">▶ 動画で見る（18:34〜）</button>
+      </div>
+    </div>
+
+    <div class="qa">
+      <div class="q">数字で見るとどう変わりましたか？</div>
+      <div class="a">
+        <span class="speaker">— 小川さん</span>
+        <p>構想が止まっていたのが半年近く。それが、<strong>相談して試作品が届くまで翌日</strong>、公開できるようになったのが数日後、診断の中身まで作り込んだ本番版が<strong>だいたい1週間</strong>です。<span class="gap"></span>
+        費用は、当初考えていたやり方だと月々のツール代で数万円はいくと覚悟していましたが、今は<strong>月数百円</strong>です。</p>
+      </div>
+    </div>
+
+    <div class="qa">
+      <div class="q">この取り組みを一言で表すと？</div>
+      <div class="a">
+        <span class="speaker">— 小川さん</span>
+        <p><strong>相談した翌日から、会社に営業マンが一人増えた</strong>、ですね。しかもただの営業マンじゃなく、企画やプロジェクトの背景まで考えてディレクションしてくれる<strong>スーパー営業マン</strong>。AIなので24時間、酒蔵さんの話を聞いて、レポートを返し続けてくれます。<span class="gap"></span>
+        AIで何ができるかが分かったのも大きいです。仕組みがひとつ動くと、次が見える。実際、診断の次にYouTuberの選定、SNSの発信と、<strong>この1か月くらいで3つ</strong>をぱんださんにお願いしています。<span class="gap"></span>
+        気持ちの面では、半年止まっていたアイデアが動き出して、ストレスがなくなりました。今は、次にAIで何ができるかを考えるのがすごく楽しいです。</p>
+        <button type="button" class="play" data-start="1372">▶ 動画で見る（22:52〜）</button>
+      </div>
+    </div>
+
+    <div class="qa">
+      <div class="q">依頼してよかったと感じた場面は？</div>
+      <div class="a">
+        <span class="speaker">— 小川さん</span>
+        <p>公開されたページを見たときは衝撃でした。診断の質問がクラファンの統計に基づいた質問に生まれ変わって、ページには成功事例と写真まで入っていた。<span class="gap"></span>
+        お願いしたのは「診断を作ってほしい」だったのに、返ってきたのは<strong>酒蔵クラファンの勝ち方が組み込まれた診断</strong>。背景まで理解して作り込んでもらえたのが、すごくありがたかったです。</p>
+      </div>
+    </div>
+
+    <div class="qa">
+      <div class="q">成果につながった一番のポイントは？</div>
+      <div class="a">
+        <span class="speaker">— 小川さん</span>
+        <p><strong>動くものを先に出してもらって、ユーザー目線で見ながら決められた進め方</strong>です。仕様を決めてから作っていたら、もっと時間がかかっていたと思います。動くものを見て「ここが違う」「これはいい」と言うだけなら、経営者の判断はすぐにできる。この順番を変えてくれたことが全てだと思います。<span class="gap"></span>
+        コンサルの面では、作り込む前に正しい形に直してくれたこと。私は診断の点数を「クラファンに向いているかの点数」にしようとしていましたが、ぱんださんが「点数はブランド力の点数にして、クラファンの準備状況は別に出したほうが酒蔵さんに納得してもらえる」と。実際その通りで、診断を受けた側が「自分のブランドを見てもらえた」と感じる設計になりました。<span class="gap"></span>
+        構築の面では、とにかく早いことと安心感。最初の1週間は毎日改善版が出てきて、「反映しました」というメッセージが夜中に届いていました。</p>
+        <button type="button" class="play" data-start="1566">▶ 動画で見る（26:06〜）</button>
+      </div>
+    </div>
+
+    <div class="qa">
+      <div class="q">YouTuber選定のツールはいかがでしたか？</div>
+      <div class="a">
+        <span class="speaker">— 小川さん</span>
+        <p>クラファンでは動画をYouTuberさんにお願いすることがあり、自社で選定をしていました。担当者が手作業で<strong>100件探して80件に絞り、月50件くらい連絡して、実際に動画を撮ってくれるのは2〜3件</strong>というペースでした。<span class="gap"></span>
+        ぱんださんに相談したら<strong>数日でツールを作ってもらえて、連絡先付きの候補が400件ほど</strong>出てきた。手作業ではメールしか送れていなかったのが、InstagramやXでも連絡できるようになりました。<span class="gap"></span>
+        これは今「CreatorFinder」というサービスになっていて、商品の説明を貼るだけで、20分ほどで数百件の候補が優先順位付きで出てくる。SNSの連絡画面までワンクリックで開いて、文章まで入っています。</p>
+        <button type="button" class="play" data-start="1784">▶ 動画で見る（29:44〜）</button>
+      </div>
+    </div>
+
+    <div class="qa">
+      <div class="q">今後の展開は？</div>
+      <div class="a">
+        <span class="speaker">— 小川さん</span>
+        <p>まず酒蔵で結果を出して、成功モデルを作りたい。その上で同じ仕組みを使って、飲食店や地域の特産品など、良いものがあるのに認知やブランドづくりができていない業種に横展開したいと考えています。業種を差し替えれば数日で別のバージョンが作れると聞いているので、楽しみです。<span class="gap"></span>
+        SNS（note・X・Instagram）の発信も一緒に設計していて、SNSを見た酒蔵さんが診断に来る入口や、酒蔵さん自身がお客さんとつながる入口を作っています。<span class="gap"></span>
+        目標は、クラファンをやりたいのにたどり着けていない地方の作り手に、酒蔵から始めて広げていくこと。<strong>その入口を、人の手ではなく仕組みで開けていく</strong>のが、今回の取り組みの延長線上にあります。</p>
+      </div>
+    </div>
+
+    <div class="qa">
+      <div class="q">どんな人にこのサービスが向いていると思いますか？</div>
+      <div class="a">
+        <span class="speaker">— 小川さん</span>
+        <p>やりたい構想が頭の中にある経営者さんなら、全員が対象になると思います。特に、<strong>頭の中に流れはあるのに、自分で試して挫折した方</strong>。私がMakeで挫折したように、ビジョンがあれば、ぱんださんに話せばすぐに具体的な提案が出てくると思います。<span class="gap"></span>
+        <strong>「作ってから考える」に切り替える</strong>のがおすすめです。完璧にしようとしている時間で、ぱんださんなら動くものを3回は作り直せる。私は診断の点数の意味すら、動くものを見て変えました。</p>
+        <button type="button" class="play" data-start="2154">▶ 動画で見る（35:54〜）</button>
+      </div>
+    </div>
+
+    <div class="qa">
+      <div class="q">依頼を迷っている方へ一言</div>
+      <div class="a">
+        <span class="speaker">— 小川さん</span>
+        <p>頭の中にビジネスのアイデアがあれば、<strong>まずは30分くらい、ぱんださんに話してみてください</strong>。話す中でアイデアが出てきて、たぶん翌日くらいには、できあがったWebサイトのURLが届きます。それを見ながら話を進めていくのがいいと思います。<span class="gap"></span>
+        自分の構想を練り込む前に、まず一度相談してみるのがいいと思いますね。</p>
+      </div>
+    </div>
+
+    <!-- お話を伺った会社 -->
+    <div class="section-title">Guest</div>
+    <div class="guest">
+      <h3>A.C.D（合同会社アウトフィールド）</h3>
+      <p>クラウドファンディング専門のLP制作サービス。構成設計・デザイン・コピーライティング・撮影・クラファンサイトへの登録サポートまでをワンストップで提供しています。初めてクラファンに挑戦する方を歓迎しています。</p>
+      <ul>
+        <li><a href="https://acd-cloud.info/home/" target="_blank" rel="noopener">A.C.D 公式サイト ↗</a></li>
+        <li><a href="https://sakagura.acd-pj.cloud/" target="_blank" rel="noopener">酒蔵ブランド診断（5分・無料／AI診断レポート付き） ↗</a></li>
+      </ul>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta">
+      <h2>頭の中の構想を、まず30分話してみませんか。</h2>
+      <p>本事例は、株式会社TYSSの<strong>AI導入支援</strong>の実績です。<br>
+      相談しながらその場で作るので、話した翌日には動くものをお見せできます。<br>
+      「こんなことはできる？」程度のご相談で構いません。</p>
+      <a href="https://forms.gle/Wei9GRR1WXy8iVwd7" target="_blank" rel="noopener">AI導入について相談してみる（無料）</a>
+      <p style="margin-top: 16px; margin-bottom: 0;">
+        <a href="index.html#ai" style="background: transparent; color: #fff; border: 2px solid rgba(255,255,255,.7); padding: 12px 34px;">AI導入支援の内容を見る →</a>
+      </p>
+    </div>
+
+    <p class="note">
+      ※社名・お名前はご本人の了承を得て掲載しています。<br>
+      ※掲載内容は収録時点(2026/9)のものです。仕組みがテスト運用の段階でのお話を含みます。<br>
+      ※記載の成果（期間・費用等）は特定のお客様の事例であり、同様の成果を保証するものではありません。
+    </p>
+
+  </div>
+
+<script>
+  // 対談動画の YouTube 動画ID。公開後にここへ入れると、サムネイルが動画に置き換わり、
+  // 章リストと各質問の「▶ 動画で見る」がその時刻から再生する。空のあいだはサムネイルのまま。
+  var VIDEO_ID = '';
+
+  (function () {
+    var box = document.getElementById('video-box');
+
+    function play(start) {
+      if (VIDEO_ID) {
+        box.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/' + VIDEO_ID +
+          '?start=' + start + '&autoplay=1&rel=0" title="成果対談 A.C.D 小川さん × ぱんだ" ' +
+          'allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>';
+      }
+      document.getElementById('video').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    if (VIDEO_ID) {
+      document.getElementById('video-soon').hidden = true;
+      box.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/' + VIDEO_ID +
+        '?rel=0" title="成果対談 A.C.D 小川さん × ぱんだ" ' +
+        'allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen loading="lazy"></iframe>';
+    }
+
+    document.addEventListener('click', function (e) {
+      var btn = e.target.closest ? e.target.closest('[data-start]') : null;
+      if (!btn) return;
+      play(parseInt(btn.getAttribute('data-start'), 10) || 0);
+    });
+  })();
+</script>
+
+</body>
+</html>
