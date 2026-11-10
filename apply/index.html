@@ -220,7 +220,7 @@
     } else if (type === 'terms') {
       var err = '';
       if (!termsRead) err = '利用規約を最後までスクロールしてご確認ください。';
-      else if (field.querySelector('.prereq input:not(:checked)')) err = '利用規約の最後にある「HANABIのご利用に必要なもの」をすべてチェックしてください。';
+      else if (field.querySelector('.prereq input:not(:checked)')) err = '利用規約の最後にある「HANABIのご利用に必要なもの」をすべて確認してください。';
       else if (!field.querySelector('.agree input:checked')) err = 'お申込みには利用規約への同意が必要です。';
       ok = !err;
       if (err) field.querySelector('.error').textContent = err;
