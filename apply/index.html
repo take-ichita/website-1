@@ -130,10 +130,10 @@
           <div class="prereq">
             <h3>HANABIのご利用に必要なもの</h3>
             <p>HANABIのご利用には、以下のご準備が必要です。ご確認のうえ、すべてにチェックを入れてください。</p>
-            <label class="prereq-item"><input type="checkbox" name="prereq-card"><span>クレジットカード（HANABIの月額料金のお支払いに使います。JCBはご利用いただけません）</span></label>
-            <label class="prereq-item"><input type="checkbox" name="prereq-shopee"><span>Shopeeのセラーアカウント（新規でアカウントを作る方は、担当者付きのアカウントをご案内できます。お申込み前にご連絡ください）</span></label>
+            <label class="prereq-item"><input type="checkbox" name="prereq-card"><span>クレジットカード<small>HANABIの月額料金のお支払いに使います。JCBはご利用いただけません。</small></span></label>
+            <label class="prereq-item"><input type="checkbox" name="prereq-shopee"><span>Shopeeのセラーアカウント<small>新規でアカウントを作る方は、担当者付きのアカウントをご案内できます。お申込み前にご連絡ください。</small></span></label>
             <label class="prereq-item"><input type="checkbox" name="prereq-amazon"><span>Amazon大口セラーアカウント</span></label>
-            <label class="prereq-item"><input type="checkbox" name="prereq-openai"><span>OpenAI APIの利用登録（ChatGPTの利用プランとは別のものです。登録手順は念のためご用意していますので、ご利用開始後の登録でも問題ありません）</span></label>
+            <label class="prereq-item"><input type="checkbox" name="prereq-openai"><span>OpenAI APIの利用登録<small>ChatGPTの利用プランとは別のものです。登録手順は念のためご用意していますので、ご利用開始後の登録でも問題ありません。</small></span></label>
           </div>
         </div>
         <label class="agree"><input type="checkbox" name="entry.331221295" value="利用規約の内容を確認し、同意します。"><span>利用規約の内容を確認し、同意します。</span></label>
@@ -204,6 +204,12 @@
     if (termsRead && termsField.classList.contains('invalid')) validateField(termsField);
   }
   box.addEventListener('scroll', checkTermsRead);
+
+  // 同意にチェックを入れた時点で、規約の既読と「ご利用に必要なもの」のチェックを判定。満たさなければ同意を外してエラー表示
+  var agree = termsField.querySelector('.agree input');
+  agree.addEventListener('change', function () {
+    if (agree.checked && !validateField(termsField)) agree.checked = false;
+  });
 
   function validateField(field) {
     var ok = true;
