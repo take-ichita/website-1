@@ -121,11 +121,21 @@
         <p class="error">お申込み内容を選んでください。</p>
       </div>
 
-      <!-- 11 利用規約 -->
-      <div class="field" data-required data-type="checkbox" id="terms-field">
+      <!-- 11 利用規約（枠の最後に「ご利用に必要なもの」の確認チェック。チェックはフォームには送らない） -->
+      <div class="field" data-required data-type="terms" id="terms-field">
         <label class="title">利用規約への同意<span class="req">必須</span></label>
-        <span class="help">下の枠内をスクロールして利用規約（プラン別条件表を含む）をご確認ください。<a href="/terms/" target="_blank" rel="noopener">別ページで開く</a></span>
-        <div class="terms-box" id="terms-box" tabindex="0"><p class="meta">利用規約を読み込んでいます…</p></div>
+        <span class="help">下の枠内を最後までスクロールして利用規約（プラン別条件表を含む）をご確認ください。<a href="/terms/" target="_blank" rel="noopener">別ページで開く</a></span>
+        <div class="terms-box" id="terms-box" tabindex="0">
+          <div id="terms-content"><p class="meta">利用規約を読み込んでいます…</p></div>
+          <div class="prereq">
+            <h3>HANABIのご利用に必要なもの</h3>
+            <p>HANABIのご利用には、以下のご準備が必要です。ご確認のうえ、すべてにチェックを入れてください。</p>
+            <label class="prereq-item"><input type="checkbox" name="prereq-card"><span>クレジットカード（HANABIの月額料金のお支払いに使います。JCBはご利用いただけません）</span></label>
+            <label class="prereq-item"><input type="checkbox" name="prereq-shopee"><span>Shopeeのセラーアカウント（新規でアカウントを作る方は、担当者付きのアカウントをご案内できます。お申込み前にご連絡ください）</span></label>
+            <label class="prereq-item"><input type="checkbox" name="prereq-amazon"><span>Amazon大口セラーアカウント</span></label>
+            <label class="prereq-item"><input type="checkbox" name="prereq-openai"><span>OpenAI APIの利用登録（ChatGPTの利用プランとは別のものです。登録手順は念のためご用意していますので、ご利用開始後の登録でも問題ありません）</span></label>
+          </div>
+        </div>
         <label class="agree"><input type="checkbox" name="entry.331221295" value="利用規約の内容を確認し、同意します。"><span>利用規約の内容を確認し、同意します。</span></label>
         <p class="error">お申込みには利用規約への同意が必要です。</p>
       </div>
@@ -174,16 +184,26 @@
 
   // 利用規約の本文を /terms/ から読み込んで枠内に表示（同一オリジン）。失敗時はリンク案内
   var box = document.getElementById('terms-box');
+  var content = document.getElementById('terms-content');
   fetch('/terms/', { cache: 'no-cache' }).then(function (res) { return res.text(); }).then(function (html) {
     var doc = new DOMParser().parseFromString(html, 'text/html');
     var body = doc.getElementById('terms-body');
     if (!body) throw new Error('no terms');
     var v = body.getAttribute('data-terms-version');
     if (v) document.getElementById('f-version').value = v;
-    box.innerHTML = body.innerHTML;
+    content.innerHTML = body.innerHTML;
   }).catch(function () {
-    box.innerHTML = '<p>利用規約の読み込みに失敗しました。<a href="/terms/" target="_blank" rel="noopener">こちら</a>からご確認ください。</p>';
-  });
+    content.innerHTML = '<p>利用規約の読み込みに失敗しました。<a href="/terms/" target="_blank" rel="noopener">こちら</a>からご確認ください。</p>';
+  }).then(checkTermsRead);
+
+  // 利用規約の枠を最後までスクロールしたかを記録（未読のまま送信しようとしたらエラー）
+  var termsRead = false;
+  var termsField = document.getElementById('terms-field');
+  function checkTermsRead() {
+    if (box.scrollTop + box.clientHeight >= box.scrollHeight - 8) termsRead = true;
+    if (termsRead && termsField.classList.contains('invalid')) validateField(termsField);
+  }
+  box.addEventListener('scroll', checkTermsRead);
 
   function validateField(field) {
     var ok = true;
@@ -191,6 +211,13 @@
     var radios = field.querySelectorAll('input[type=radio]');
     if (radios.length) {
       ok = Array.prototype.some.call(radios, function (r) { return r.checked; });
+    } else if (type === 'terms') {
+      var err = '';
+      if (!termsRead) err = '利用規約を最後までスクロールしてご確認ください。';
+      else if (field.querySelector('.prereq input:not(:checked)')) err = '利用規約の最後にある「HANABIのご利用に必要なもの」をすべてチェックしてください。';
+      else if (!field.querySelector('.agree input:checked')) err = 'お申込みには利用規約への同意が必要です。';
+      ok = !err;
+      if (err) field.querySelector('.error').textContent = err;
     } else if (type === 'checkbox') {
       ok = !!field.querySelector('input[type=checkbox]:checked');
     } else {

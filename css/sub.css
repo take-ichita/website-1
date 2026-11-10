@@ -113,6 +113,10 @@ textarea { min-height: 120px; resize: vertical; }
 .terms-box h2 { font-size: 1.1rem; border: 0; margin: 0 0 12px; padding: 0; }
 .terms-box h3 { font-size: 1rem; margin: 18px 0 4px; }
 .terms-box table { font-size: .85rem; }
+.terms-box .prereq { margin-top: 24px; padding-top: 16px; border-top: 1px solid #cfd3d8; }
+.terms-box .prereq p { margin: 0 0 8px; }
+.prereq-item { display: flex; gap: 8px; align-items: flex-start; margin: 6px 0; cursor: pointer; }
+.prereq-item input { margin-top: 6px; flex: 0 0 auto; }
 .agree { display: flex; gap: 10px; align-items: flex-start; margin-top: 14px; font-weight: 700; cursor: pointer; }
 .agree input { transform: scale(1.3); margin-top: 6px; }
 .error { color: #c62828; font-size: .88rem; margin-top: 6px; display: none; }
